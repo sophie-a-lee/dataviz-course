@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sophie Lee">
-<meta name="dcterms.date" content="2024-09-04">
 
-<title>Data visualisation with R</title>
+<title>Data visualisation with R - 2&nbsp; Aesthetics and geometries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_intro.html" rel="next">
+<link href="./03_scales.html" rel="next">
+<link href="./01_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -149,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_aes_geom.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aesthetics and geometries</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -163,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome!</span></a>
   </div>
 </li>
@@ -171,6 +170,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_aes_geom.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aesthetics and geometries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scale functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Annotations and titles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -206,13 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a>
-  <ul class="collapse">
-  <li><a href="#how-to-use-these-materials" id="toc-how-to-use-these-materials" class="nav-link" data-scroll-target="#how-to-use-these-materials">How to use these materials</a></li>
-  <li><a href="#data-used-in-the-course" id="toc-data-used-in-the-course" class="nav-link" data-scroll-target="#data-used-in-the-course">Data used in the course</a></li>
-  <li><a href="#feedback-and-issues" id="toc-feedback-and-issues" class="nav-link" data-scroll-target="#feedback-and-issues">Feedback and issues</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
-  </ul></li>
+  <li><a href="#aesthetic-markings" id="toc-aesthetic-markings" class="nav-link active" data-scroll-target="#aesthetic-markings"><span class="header-section-number">2.1</span> Aesthetic markings</a></li>
+  <li><a href="#geometries" id="toc-geometries" class="nav-link" data-scroll-target="#geometries"><span class="header-section-number">2.2</span> Geometries</a></li>
+  <li><a href="#exporting-visualisations" id="toc-exporting-visualisations" class="nav-link" data-scroll-target="#exporting-visualisations"><span class="header-section-number">2.3</span> Exporting visualisations</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul>
 </nav>
     </div>
@@ -221,26 +235,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data visualisation with R</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aesthetics and geometries</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sophie Lee </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 4, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -250,62 +252,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome!</h1>
-<p>Welcome to the course materials for the Data visualisation with R short course. This course introduces the <code>ggplot2</code> package and its underlying grammar of graphics. Participants will understand how to choose the most appropriate type of visualisation, based on the type and number of variables, and the intention of the plot. We will then build visualisations, layer by customisable layer, to transform simple plots into beautiful, informative graphics.</p>
-<p>By the end of this course, you will:</p>
-<ul>
-<li>Create compelling, clear data visualisations using the <code>ggplot2</code> package</li>
-<li>Customise graphs using <code>scale</code> and <code>theme</code> functions</li>
-<li>Add annotations to graphs to make them as clear and accessible as possible</li>
-<li>Know when to facet graphs to show multiple plots on the same graph</li>
-<li>Save personalised colour palettes and theme functions to ensure visualisations are consistent</li>
-<li>Understand the key principles of data visualisation to ensure they are efficient, accessible, and honest</li>
-</ul>
-<section id="how-to-use-these-materials" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-these-materials">How to use these materials</h2>
-<p>This book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned.</p>
-<p>Code examples will be provided in code blocks, such as this one:</p>
+<p>Two of the key elements to any <code>ggplot</code> object are the information we wish to present, and the way in which we would like to visualise it. This chapter will go into more details about how we specify aesthetic markings of graphs, both manually and using the data, or add layers to a graphic to improve the clarity of our message.</p>
+<section id="aesthetic-markings" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="aesthetic-markings"><span class="header-section-number">2.1</span> Aesthetic markings</h2>
+<p>Any information that we are presenting that is taken from the data must be given within the <code>aes</code> wrapper. The argument each variable takes within this wrapper depends on the element of the graph which it defines. For example, in the previous example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
-<p>Code in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck!</p>
-<p>Throughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="cell-output-display">
+<div id="fig-flipper-mass-scatter" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flipper-mass-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_aes_geom_files/figure-html/fig-flipper-mass-scatter-1.png" class="img-fluid figure-img" width="672">
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These boxes will be used to highlight important messages, supplementing the main text.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flipper-mass-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica.
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>These boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!</p>
 </div>
+<p>The variables define the <code>x</code> and <code>y</code> axes. Additional variables can be added to a visualisation by using them to customise other elements of a graph, such as:</p>
+<ul>
+<li><code>colour</code>: determines the colour of points (for dot and scatterplots), lines (for line graphs), or borders (for bar charts, histograms and pie charts)</li>
+<li><code>fill</code>: determines the colour of bars or segments</li>
+<li><code>shape</code>: changes the symbols presented on dot and scatterplots</li>
+<li><code>linetype</code>: customises the type of line displayed (solid by default, but can be used to show dashed lines, etc)</li>
+<li><code>size</code>: determines the size of points</li>
+<li><code>linewidth</code>: changes the line width</li>
+<li><code>alpha</code>: controls the transparency of graph elements</li>
+</ul>
+<p>For example, if we wish to show how the relationship between flipper length and body mass differs between penguin species, this could be included within the <code>aes</code> wrapper to change the <code>colour</code> of points:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
-<div class="stylebox">
-<div class="stylebox-header">
-<div class="stylebox-icon">
-
+<div class="cell-output-display">
+<div id="fig-flipper-mass-spec" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flipper-mass-spec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_aes_geom_files/figure-html/fig-flipper-mass-spec-1.png" class="img-fluid figure-img" width="672">
 </div>
-<p>Style tip</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flipper-mass-spec-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.
+</figcaption>
+</figure>
 </div>
-<div class="stylebox-body">
-<p>These boxes contain style tips to ensure that your code follows the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>, making it as consistent and readable as possible.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -318,33 +318,221 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.</p>
+<p>Although you should aim to show as much relevant data as possible, be careful not to overload a plot. Too many variables on the same visualisation can make it less informative, confusing the reader and hiding important messages. In this case, it would be better to have multiple, simpler graphs than a single, complicated graph.</p>
 </div>
 </div>
-<p>To make these notes as accessible as possible, they are available to view in dark mode by toggling the <img src="images/dark_mode.png" class="img-fluid"> button. They are also available to download as a PDF file using the <img src="images/pdf.png" class="img-fluid"> button.</p>
-<p>All exercise solutions are available in the <a href="./exercise_solutions.html">appendices</a>. Please attempt the exercises yourself first, making full use of R’s built in help files, <a href="https://posit.co/resources/cheatsheets/">cheatsheets</a> (where available), and example R code in this book. Going straight to the solutions to copy and paste the code without thinking will not help you after the course!</p>
-<p>Some exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:</p>
-<p>:::{callout-caution collapse=“true} ## Exercise hint</p>
-<p>The functions you will need for this exercise are <code>filter</code> and <code>count</code>. :::</p>
+<p>These aesthetic options can also be changed manually outside of the <code>aes</code> wrapper, within the corresponding <code>geom</code> function. For example, if we wanted to make the points in <a href="#fig-flipper-mass-spec" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> larger, we could adjust the code to the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species)) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-size" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_aes_geom_files/figure-html/fig-size-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="data-used-in-the-course" class="level2">
-<h2 class="anchored" data-anchor-id="data-used-in-the-course">Data used in the course</h2>
-<p>The examples and exercises in these materials are based on real world data….</p>
-<p>Data for this course can be downloaded from the <code>data</code> folder of this course’s <a href="https://github.com/sophie-a-lee">repository</a>.</p>
-<p>For more information about this data, including variable descriptions and sources, see <a href="./data_description.html">the appendix</a>.</p>
+<section id="geometries" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="geometries"><span class="header-section-number">2.2</span> Geometries</h2>
+<p>Most visual markings within <code>ggplot</code> are determined by a <code>geom</code> object. There are many options within the package that can be used and each requires different combinations of <code>aes</code> markings to work. For example, the scatterplot in <span class="quarto-unresolved-ref">?fig-flipper-mass</span> required <code>x</code> and <code>y</code> to be specified, but a bar chart or histogram would only require <code>x</code> as the y-axis is generated from the data.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a full list of geometries included in <code>ggplot2</code>, visit the package’s <a href="https://rstudio.github.io/cheatsheets/html/data-visualization.html#geoms">cheatsheet</a></p>
+</div>
+</div>
+<p>Multiple geometries can be added to the same graph to add information to the plot. These can be used to add information to the graph, such as a reference value or a summary. For example, if we wished to show the difference in the distribution of body mass of penguin species, we could show every individual observation using a point and add a boxplot layer to show the differences in median and interquartile range.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ensure that the <code>outliers</code> argument of <code>geom_boxplot</code> is set to <code>FALSE</code> to avoid duplicate points.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, </span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-4" class="code-annotation-target"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outliers =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="dv">075</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="1">Jittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-4" data-code-lines="4" data-code-annotation="2">Use alpha to make the box semi-transparent so we can still see the points underneath.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<div id="fig-mass-spec-box" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mass-spec-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02_aes_geom_files/figure-html/fig-mass-spec-box-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mass-spec-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Comparison of body mass between penguin species
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Other useful layers may include <code>geom_hline</code>, <code>geom_vline</code> and <code>geom_abline</code> which add a manually defined horizontal, vertical, or diagonal line respectively. To generate a line of best fit from the data, we can use <code>geom_smooth</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By default, <code>geom_smooth</code> generates a curved line. To change this, change the <code>method</code> argument to an appropriate method. For example, <code>method = "lm"</code> generates a straight line or check the helpfile <code>?geom_smooth</code> for other options.</p>
+</div>
+</div>
 </section>
-<section id="feedback-and-issues" class="level2">
-<h2 class="anchored" data-anchor-id="feedback-and-issues">Feedback and issues</h2>
-<p>This book is a work in progress and will be updated based on course feedback and requirements of participants. If you spot a bug or mistake in these notes, please let me know by <a href="https://github.com/sophie-a-lee/Introduction_R_Tidyverse_course/issues">raising an issue</a>.</p>
-<p>If you enjoyed using these resources and would like to find more of them or attend a live course, please visit <a href="https://scubed.rbind.io/">my website</a>, follow me on <a href="https://x.com/SophieStats10">Twitter</a> and <a href="https://www.linkedin.com/in/sophie-a-lee/">LinkedIn</a>, or support more free resources by <a href="https://buymeacoffee.com/sophie_a_lee">buying me a coffee!</a>.</p>
-<p>If you are interested in organising a bespoke course or have consultancy opportunities you think I would be a good fit for, please <a href="https://scubed.rbind.io/contact/">get in touch!</a></p>
+<section id="exporting-visualisations" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exporting-visualisations"><span class="header-section-number">2.3</span> Exporting visualisations</h2>
+<p>Visualisations created in RStudio can be exported manually from the RStudio interface by clicking the <img src="images/export.png" class="img-fluid"> button. This allows visualisations to be copied and pasted into documents (using the Copy to clipboard option) or saved as an image (for example, <code>.png</code> or <code>.jpg</code>) or PDF. Visualisations can also be stored as objects using the <code>&lt;-</code> symbol. These objects can then be saved using the <code>ggsave</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>species_mass_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> penguins, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> .<span class="dv">75</span>) </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(species_mass_plot, <span class="at">filename =</span> <span class="st">"output/species_mass_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>ggsave</code> function can be customised to change the file type, <code>height</code>, <code>width</code> and resolution (using the <code>dpi</code> argument).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>ggsave</code> is compatible with a range of file types, including <code>png</code>, <code>jpg</code>, <code>pdf</code> and <code>svg</code>. Saving these visualisations in a vectorised format, such as <code>svg</code> allows graph elements to be edited outside of R. For example, after pasting an exported <code>svg</code> file into Microsoft Word, ungroup the image. This allows customisation of axes text, legends, background colours, etc.</p>
+<p>External editing is not recommended as output would no longer be reproducible via R.</p>
+</div>
+</div>
 </section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
-<p>I believe that science should not be behind a paywall, that is why these materials are available for free online, licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA licence</a>.</p>
+<section id="exercise-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<ol type="1">
+<li>Load the <code>CSP_2020.csv</code> file into R and save it as an object named <code>csp_2020</code>. Ensure that all variables are correctly specified by type. For more information about this dataset, including the source and variable descriptions, check the <a href="./data_description.html">appendix</a>.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To read a csv file in, use the <code>read_csv</code> function. Consider storing the raw data in its own folder.</p>
+<p>All variables should be categorised as numberic (or <code>dbl</code> in <code>tidyverse</code>), apart from the <code>authority</code> variable (which should be <code>character</code>) and the <code>region</code> variable (which should be <code>factor</code>). Use the <code>mutate</code> and <code>factor</code> functions to fix this.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>The following code was intended to produce a scatterplot showing the relationship between the <code>sfa_2020</code> and <code>ct_total_2020</code> variables with the points in blue. Debug the code to fix the problem:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> csp_2020) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> sfa_2020, <span class="at">y =</span> ct_total_2020, <span class="at">colour =</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check which aesthetic elements are defined by the data and which are defined manually. Consider which of these need to be in the <code>aes</code> wrapper.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Add a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the <code>geom_smooth</code> function and check the <code>method</code> argument.</p>
+<p>To figure out what this shaded area is, check the helpfile <code>?geom_smooth</code>, specifically the arguments <code>se</code> and <code>level</code>.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Use an appropriate visualisation to check the distribution of the <code>sfa_2020</code> variable. Interpret this visualisation.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Histograms are used to check the distribution of numeric variables, and are generated using <code>geom_histogram</code>.</p>
+<p>Based on this visualisation, do you think the data are normally distributed? Are there any outliers or potential errors? Use the <code>filter</code> function to investigate outliers.</p>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -842,25 +1030,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
@@ -903,10 +1130,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./01_intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_scales.html" class="pagination-link" aria-label="Scale functions">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scale functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

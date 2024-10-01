@@ -1,0 +1,183 @@
+---
+code-annotations: hover  
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+pacman::p_load(tidyverse, palmerpenguins)
+```
+
+
+# Themes
+We have already seen how data elements of a `ggplot` can be customised using `scale` functions. `theme` functions allow us to customise all other elements of the visualisation, including the plot background, title fonts and sizes, legend positioning, and gridlines. 
+
+There are many options that can be adjusted within the `theme` function (see the helpfile `?theme` for a complete list). Often, it is efficient to begin with a pre-built theme and tweak elements that do not suit our purpose.
+
+## Pre-built themes
+There are 8 complete themes programmed in the `ggplot2` package. These are:
+
+```{r}
+#| label: theme-examples
+#| echo: false
+#| layout-ncol: 2
+
+x <-  runif(10)
+y <- 2 + (10 * x) + rnorm(10, 0, 10)
+
+base_plot <- tibble(x, y) %>% 
+  ggplot(aes(x = x, y = y)) +
+  geom_point()
+
+base_plot +
+  labs(title = "theme_grey() (default)") +
+  theme_grey(base_size = 16)
+
+base_plot +
+  labs(title = "theme_bw()") +
+  theme_bw(base_size = 16)
+  
+base_plot +
+  labs(title = "theme_classic()") +
+  theme_classic(base_size = 16)
+  
+base_plot +
+  labs(title = "theme_dark()") +
+  theme_dark(base_size = 16)
+  
+base_plot +
+  labs(title = "theme_light()") +
+  theme_light(base_size = 16)
+
+base_plot +
+  labs(title = "theme_linedraw()") +
+  theme_linedraw(base_size = 16)
+
+base_plot +
+  labs(title = "theme_minimal()") +
+  theme_minimal(base_size = 16)
+
+base_plot +
+  labs(title = "theme_void()") +
+  theme_void(base_size = 16)
+  
+```
+
+Each `theme` function can be added as a layer in a `ggplot` object. For other pre-built themes, check out the [`ggthemes` package](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/)).
+
+:::{.stylebox}
+
+::::{.stylebox-header}
+:::::{.stylebox-icon}
+:::::
+Style tip
+::::
+
+::::{.stylebox-body}
+Although pre-built `theme` functions do not require arguments to run, they all contain the optional argument `base_size` which set the default font size (defaulted to 11). To ensure visualisations are as [accessible]{.highlight} and [inclusive]{.highlight} as possible, ensure this is set to at least 12 for printed graphs or 36 for presentations.
+::::
+
+:::
+
+## Customising themes
+Individual elements of a visualisation's theme can be customised within the `theme` functions. Many elements that can be customised using the `theme` require an `element` wrapper. This wrapper is determined by the type of object that we are customising, the four options are:
+
+- `element_text` when customising text, e.g. axis titles and labels
+- `element_rect` when customising backgrounds, e.g. the graph area
+- `element_line` when customising lines, e.g. gridlines
+- `element_blank` to remove elements
+
+Elements that do not require these wrappers are often related to positioning. A common example of this is the `legend.position` argument which can be set to `"left"`, `"right"` (default), `"top"`, `"bottom"`, or removed using `"none"`.
+
+For example, we will customise elements of the scatterplot in @fig-text-example using the `theme` functions:
+
+```{r}
+#| label: theme-minimal
+#| warning: false
+
+minimal_plot <- ggplot(data = penguins,
+       aes(x = flipper_length_mm, y = body_mass_g, 
+           colour = species)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)",
+       colour = "Species") +
+  theme_minimal() 
+
+minimal_plot
+```
+
+```{r}
+#| label: theme-ex
+#| warning: false
+
+minimal_plot +
+  theme(legend.position = "bottom", #<1>
+        axis.title = element_text(size = 16), #<2>
+        axis.text = element_text(size = 14, angle = -30), #<3>
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 14),
+        panel.background = element_rect(fill = "thistle", #<4>
+                                        colour = "grey"), #<4>
+        panel.grid.major = element_line(colour = "black"), #<5>
+        panel.grid.minor = element_line(colour = "grey45", #<6>
+                                        linetype = "dashed")) #<6>
+```
+
+1. Moves the legend to the bottom of the graph.
+2. Sets the axis title labels to size 16.
+3. Sets the axis text (tick marks) to size 14 and rotates them 30 degrees clockwise.
+4. Sets the plot background to thistle with a grey outline.
+5. Adds black major grid lines.
+6. Adds grey, dashed minor grid lines.
+
+:::{.stylebox}
+
+::::{.stylebox-header}
+:::::{.stylebox-icon}
+:::::
+Style tip
+::::
+
+::::{.stylebox-body}
+Good visualisations require a middle ground between overly minimal design, which can make interpretation difficult, and charts overloaded with clutter. The bold grid lines on this visualisations are a good example of where 'chart junk' can distract from the data.
+
+Visualisations should strive to make the data are the most important part of the graphic, whilst ensuring there is sufficient context provided by non-data elements.
+::::
+
+:::
+
+## Creating a theme
+One benefits of using `theme` functions is that visualisations will remain consistent in terms of their design. Custom themes can be saved as functions and added to `ggplot` objects in place of the in-built themes. For example,
+
+```{r}
+#| label: theme-custom
+#| warning: false
+
+theme_dataviz <- function() {
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        axis.title = element_text(size = 16), 
+        axis.text.x = element_text(size = 12, angle = -30, 
+                                   vjust = 0), 
+        axis.text.y = element_text(size = 12, hjust = 0),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 12),
+        panel.background = element_rect(fill = "linen", 
+                                        colour = "grey"), 
+        panel.grid.major = element_line(colour = "grey45"),
+        panel.grid.minor = element_line(colour = "grey75", 
+                                        linetype = "dashed")) 
+}
+
+ggplot(data = penguins,
+       aes(x = flipper_length_mm, y = body_mass_g, 
+           colour = species)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)",
+       colour = "Species") +
+  theme_dataviz()
+```
+

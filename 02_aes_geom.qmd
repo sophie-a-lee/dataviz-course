@@ -1,0 +1,177 @@
+---
+code-annotations: hover
+knitr:
+  opts_knit: 
+    message: false
+    warning: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+pacman::p_load(tidyverse, palmerpenguins)
+
+data(penguins)
+```
+
+# Aesthetics and geometries
+Two of the key elements to any `ggplot` object are the information we wish to present, and the way in which we would like to visualise it. This chapter will go into more details about how we specify aesthetic markings of graphs, both manually and using the data, or add layers to a graphic to improve the clarity of our message.
+
+## Aesthetic markings
+Any information that we are presenting that is taken from the data must be given within the `aes` wrapper. The argument each variable takes within this wrapper depends on the element of the graph which it defines. For example, in the previous example:
+
+```{r}
+#| label: fig-flipper-mass-scatter
+#| fig-cap: "Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica."
+
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + 
+  geom_point() 
+```
+
+The variables define the `x` and `y` axes. Additional variables can be added to a visualisation by using them to customise other elements of a graph, such as:
+
+- `colour`: determines the colour of points (for dot and scatterplots), lines (for line graphs), or borders (for bar charts, histograms and pie charts)
+- `fill`: determines the colour of bars or segments
+- `shape`: changes the symbols presented on dot and scatterplots
+- `linetype`: customises the type of line displayed (solid by default, but can be used to show dashed lines, etc)
+- `size`: determines the size of points 
+- `linewidth`: changes the line width
+- `alpha`: controls the transparency of graph elements
+
+For example, if we wish to show how the relationship between flipper length and body mass differs between penguin species, this could be included within the `aes` wrapper to change the `colour` of points:
+
+```{r}
+#| label: fig-flipper-mass-spec
+#| fig-cap: "Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species."
+
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + 
+  geom_point() 
+```
+
+:::{.callout-warning}
+Although you should aim to show as much relevant data as possible, be careful not to overload a plot. Too many variables on the same visualisation can make it less informative, confusing the reader and hiding important messages. In this case, it would be better to have multiple, simpler graphs than a single, complicated graph.
+:::
+
+These aesthetic options can also be changed manually outside of the `aes` wrapper, within the corresponding `geom` function. For example, if we wanted to make the points in @fig-flipper-mass-spec larger, we could adjust the code to the following:
+
+```{r}
+#| label: fig-size
+#| fig-cap: "Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species."
+
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + 
+  geom_point(size = 5) 
+```
+
+## Geometries
+Most visual markings within `ggplot` are determined by a `geom` object. There are many options within the package that can be used and each requires different combinations of `aes` markings to work. For example, the scatterplot in @fig-flipper-mass required `x` and `y` to be specified, but a bar chart or histogram would only require `x` as the y-axis is generated from the data. 
+
+:::{.callout-tip}
+## Hint
+
+For a full list of geometries included in `ggplot2`, visit the package's [cheatsheet](https://rstudio.github.io/cheatsheets/html/data-visualization.html#geoms)
+:::
+
+Multiple geometries can be added to the same graph to add information to the plot. These can be used to add information to the graph, such as a reference value or a summary. For example, if we wished to show the difference in the distribution of body mass of penguin species, we could show every individual observation using a point and add a boxplot layer to show the differences in median and interquartile range.
+
+:::{.callout-warning}
+Ensure that the `outliers` argument of `geom_boxplot` is set to `FALSE` to avoid duplicate points.
+:::
+
+```{r}
+#| label: fig-mass-spec-box
+#| fig-cap: "Comparison of body mass between penguin species"
+
+ggplot(data = penguins, 
+       aes(x = species, y = body_mass_g)) +
+  geom_jitter() + #<1>
+  geom_boxplot(outliers = FALSE, alpha = 075) #<2>
+```
+
+1. Jittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.
+2. Use alpha to make the box semi-transparent so we can still see the points underneath.
+
+Other useful layers may include `geom_hline`, `geom_vline` and `geom_abline` which add a manually defined horizontal, vertical, or diagonal line respectively. To generate a line of best fit from the data, we can use `geom_smooth`.
+
+:::{.callout-tip}
+## Hint
+
+By default, `geom_smooth` generates a curved line. To change this, change the `method` argument to an appropriate method. For example, `method = "lm"` generates a straight line or check the helpfile `?geom_smooth` for other options.
+:::
+
+## Exporting visualisations
+Visualisations created in RStudio can be exported manually from the RStudio interface by clicking the ![](images/export.png) button. This allows visualisations to be copied and pasted into documents (using the Copy to clipboard option) or saved as an image (for example, `.png` or `.jpg`) or PDF. 
+Visualisations can also be stored as objects using the `<-` symbol. These objects can then be saved using the `ggsave` function:
+
+```{r}
+#| label: ggsave
+#| eval: false
+
+species_mass_plot <- ggplot(data = penguins, 
+       aes(x = species, y = body_mass_g)) +
+  geom_jitter() + 
+  geom_boxplot(alpha = .75) 
+
+ggsave(species_mass_plot, filename = "output/species_mass_plot.png")
+```
+
+The `ggsave` function can be customised to change the file type, `height`, `width` and resolution (using the `dpi` argument).
+
+:::{.callout-tip}
+## Hint
+
+`ggsave` is compatible with a range of file types, including `png`, `jpg`, `pdf` and `svg`. Saving these visualisations in a vectorised format, such as `svg` allows graph elements to be edited outside of R. For example, after pasting an exported `svg` file into Microsoft Word, ungroup the image. This allows customisation of axes text, legends, background colours, etc.
+
+External editing is not recommended as output would no longer be reproducible via R.
+:::
+
+
+## Exercise 1 {.unnumbered}
+1. Load the `CSP_2020.csv` file into R and save it as an object named `csp_2020`. Ensure that all variables are correctly specified by type. For more information about this dataset, including the source and variable descriptions, check the [appendix](data_description.qmd).
+
+:::{.callout-caution collapse="true"}
+## Exercise hint
+
+To read a csv file in, use the `read_csv` function. Consider storing the raw data in its own folder.
+
+All variables should be categorised as numberic (or `dbl` in `tidyverse`), apart from the `authority` variable (which should be `character`) and the `region` variable (which should be `factor`). Use the `mutate` and `factor` functions to fix this.
+:::
+
+2. The following  code was intended to produce a scatterplot showing the relationship between the `sfa_2020` and `ct_total_2020` variables with the points in blue. Debug the code to fix the problem:
+
+```{r}
+#| label: exercise-colour
+#| eval: false
+
+ggplot(data = csp_2020) +
+  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = "blue"))
+```
+
+:::{.callout-caution collapse="true"}
+## Exercise hint
+
+Check which aesthetic elements are defined by the data and which are defined manually. Consider which of these need to be in the `aes` wrapper.
+:::
+
+3. Add a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?
+
+:::{.callout-caution collapse="true"}
+## Exercise hint
+
+Use the `geom_smooth` function and check the `method` argument. 
+
+To figure out what this shaded area is, check the helpfile `?geom_smooth`, specifically the arguments `se` and `level`.
+:::
+
+4. Use an appropriate visualisation to check the distribution of the `sfa_2020` variable. Interpret this visualisation.
+
+:::{.callout-caution collapse="true"}
+## Exercise hint
+
+Histograms are used to check the distribution of numeric variables, and are generated using `geom_histogram`.
+
+Based on this visualisation, do you think the data are normally distributed? Are there any outliers or potential errors? Use the `filter` function to investigate outliers.
+:::
+

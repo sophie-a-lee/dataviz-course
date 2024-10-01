@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Short course template"
+  title: "Data visualisation with R"
   author: "Sophie Lee"
   date: 2024-09-04
   downloads: [pdf]  
@@ -18,7 +18,12 @@ book:
         aria-label: Buy me a coffee
   chapters:
     - index.qmd
-    - chapter1.qmd
+    - 01_intro.qmd
+    - 02_aes_geom.qmd
+    - 03_scales.qmd
+    - 04_annotation.qmd
+    - 05_theme.qmd
+    - 06_facet.qmd
   appendices: 
     - data_description.qmd
     - exercise_solutions.qmd

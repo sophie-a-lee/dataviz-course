@@ -1,0 +1,112 @@
+---
+code-annotations: hover
+---
+
+# Introduction
+
+## Why data visualisation?
+Data visualisation is arguably one of the most important part of any analysis journey. It is a powerful tool with a wide range of uses, including:
+
+- [Exploring the data]{.highlight}: checking for outliers, potential errors, and generally 'getting to know' our data
+- [Generating hypotheses:]{.highlight} investigating potential trends in the data, identifying important variables to include in a model
+- [Checking parametric assumptions:]{.highlight} validating analysis methods that require certain assumptions to be valid, e.g. distributions of variables
+- [Communicating results:]{.highlight} often visualisations are far more powerful and concise than text or tables at conveying important messages to readers
+
+Each of these intentions may require a different visualisation, but all of them must follow the same [design priciples](https://www.ncrm.ac.uk/resources/online/all/?id=20844). They must be clear, appropriate, honest, and inclusive. 
+
+## A grammar of graphics
+Although R has a number of options to display data, this course will focus on one of the more popular and flexible approaches, `ggplot`. `ggplot2` is an R package that is a member of the `tidyverse`, a suite of R packages designed to make data analysis/science more accessible and efficient. 
+
+The `ggplot2` package implements a ‘grammar of graphics’ approach, in which graphs are composed of multiple layers. According to the grammar of graphics, all visualisations must contain three elements: the [data]{.highlight}, the [information]{.highlight} we wish to display, and some [mapping]{.highlight}, describing how to visualise the information.
+
+To illustrate this, let's create a simple visualisation to investigate the relationship between the body mass and flipper length of penguins in the Palmer archipelago, Antarctica.
+
+:::{.callout-warning}
+If you have never used the `pacman` package before, install this to your computer using the following function:
+
+```{r}
+#| label: install-pacman
+#| eval: false
+
+install.packages('pacman')
+```
+
+The `pacman` package is a set of package management functions which is designed to make tasks such as installing and loading packages simpler, and speeds up these processes. The `p_load` function acts as a wrapper for the `library` function, which checks to see if a package is present on the current machine, and installs them from CRAN if they are not. If a package exists on a machine, it will load it as usual.
+:::
+
+```{r}
+#| label: first-ggplot
+#| message: false  
+#| warning: false
+
+pacman::p_load(tidyverse, palmerpenguins) #<1>
+
+data(penguin) #<2>
+
+ggplot(data = penguins) #<3>
+
+```
+
+1. We must first load the R packages we require. This may take a long time if you have never downloaded `tidyverse` before, do not worry if a lot of text appears, this is normal!!
+
+2. We then load the dataset we will be using for this part of the course from the `palmerpenguins` package.
+
+3. The first element required for a `ggplot` is the data. As the other two layers are missing, this will just produce a blank plot area.
+
+```{r}
+#| label: ggplot-no-geom
+
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))  #<4>
+
+```
+
+4. The second element that is required for a `ggplot` is the information we wish to present. This is the flipper lengths and body masses of our penguin sample. 
+
+```{r}
+#| label: first-full-ggplot
+
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + #<5>
+  geom_point() #<5>
+```
+
+5. The final element required is some physical markings of the data. As both variables we wish to present are continuous, we could show every observation as a point in a scatterplot. In `ggplot2`, a marking can be added using a `geom` function.
+
+:::{.callout-warning}
+Although `ggplot2` is part of the `tidyverse` suite of packages, the pipe symbol (`%>%` or `|>`) is replaced with `+` when adding layers to a `ggplot`. 
+:::
+
+The plot may not be pretty, but it contains all three elements required by graphics, and shows a clear positive association between penguins' flipper length and body mass. Additional layers will be introduced throughout this course to improve the design of this visualisation.
+
+## Choosing the most appropriate visualisation
+The choice of visualisation should be driven first and foremost by the [context]{.highlight}, the [audience]{.highlight}, and the [goal]{.highlight} of the graphic. Often, people choose axes of graphics based on the data available to them. Although the choice of visualisation is influenced (and sometimes restricted) by the number and type of variables available, it should be fundamentally decided based on the message we wish to convey to the readers and the most efficient way to do this. 
+
+Most common visualisations can be generated in `ggplot2` using a `geom` function. There are many options available, some of which will be covered throughout this course, many will not. @tbl-viztype provides a sample of some of the most common visualisation types, classified by the number and type of variables they are compatible with. For many more options, including many non-standard graphs, visit the [From data to viz](https://www.data-to-viz.com/) or view R code examples through their [R graph gallery](https://r-graph-gallery.com/).
+
+```{r}
+#| label: tbl-viztype
+#| tbl-cap: "Common data visualisations, classified by type and number of variables, presented with the `geom` function used to generate them."
+#| echo: false
+
+tibble(n_vars = c("One variable", rep("", 4), "Two variables", rep("", 4),
+                  "> 2 variables", ""),
+       type_vars = c("Categorical", "", "Numerical", "Spatial",
+                     "Temporal", "Two categorical", "", 
+                     "One numeric, one categorical", "", 
+                     "Two numerical", "> 2 categorical", 
+                     "2 numeric, one categorical, or > 2 numeric"),
+       visualisation = c("Frequency table", "Bar chart", "Histogram",
+                         "Map", "Line plot", "Frequency table", 
+                         "Stacked/side-by-side bar chart", "Dot plot",
+                         "Box plot", "Scatterplot", "Table", 
+                         "Scatterplot with different colours/symbols/sizes"),
+       geom_obj = c("table", "geom_bar", "geom_histogram", "geom_sf",
+                    "geom_line", "table", "geom_bar", "geom_point",
+                    "geom_boxplot", "geom_point", "table", "geom_point")) %>% 
+  knitr::kable(col.names = c("Number of variables", "Type of variables",
+                             "Name of visualisation", "R function"))
+
+```
+
+
+
+

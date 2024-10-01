@@ -1,13 +1,19 @@
 # Welcome! {.unnumbered}
 
-Welcome to the course materials for the **insert course name** short course. 
+Welcome to the course materials for the Data visualisation with R short course. 
+This course introduces the `ggplot2` package and its underlying grammar of graphics. Participants will understand how to choose the most appropriate type of visualisation, based on the type and number of variables, and the intention of the plot. We will then build visualisations, layer by customisable layer, to transform simple plots into beautiful, informative graphics.
 
-This course is designed to ...
+By the end of this course, you will:
 
-Through this course, you will learn ...
+- Create compelling, clear data visualisations using the `ggplot2` package
+- Customise graphs using `scale` and `theme` functions
+- Add annotations to graphs to make them as clear and accessible as possible
+- Know when to facet graphs to show multiple plots on the same graph
+- Save personalised colour palettes and theme functions to ensure visualisations are consistent
+- Understand the key principles of data visualisation to ensure they are efficient, accessible, and honest
 
 
-## How to use this book
+## How to use these materials
 This book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned. 
 
 Code examples will be provided in code blocks, such as this one:

@@ -1,0 +1,21 @@
+---
+code-annotations: hover
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+pacman::p_load(tidyverse, palmerpenguins)
+```
+
+# Faceting
+Faceting allows us to divide a plot into subplots based on some grouping variable within the data. This allows us to show multiple variables in the same visualisation without risking overloading the plot and losing the intended message.
+
+There are two approaches to faceting within `ggplot2`: 
+
+- `facet_wrap` separates observations into separate graphs based on a single variable. This variable is entered into the function with a `vars` wrapper, the number of rows or columns are specified using the `nrow` and `ncol` arguments.
+- `facet_grid` produces a 2d grid of panels, where the rows and columns are defined by variables. Variables are included separated by `~` (`facet_grid(rows ~ cols)`).
+
+
+

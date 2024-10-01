@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Short course template",
+    "title": "Data visualisation with R",
     "section": "",
-    "text": "Welcome!\nWelcome to the course materials for the insert course name short course.\nThis course is designed to …\nThrough this course, you will learn …",
+    "text": "Welcome!\nWelcome to the course materials for the Data visualisation with R short course. This course introduces the ggplot2 package and its underlying grammar of graphics. Participants will understand how to choose the most appropriate type of visualisation, based on the type and number of variables, and the intention of the plot. We will then build visualisations, layer by customisable layer, to transform simple plots into beautiful, informative graphics.\nBy the end of this course, you will:",
     "crumbs": [
       "Welcome!"
     ]
@@ -22,7 +22,7 @@
   {
     "objectID": "index.html#data-used-in-the-course",
     "href": "index.html#data-used-in-the-course",
-    "title": "Short course template",
+    "title": "Data visualisation with R",
     "section": "Data used in the course",
     "text": "Data used in the course\nThe examples and exercises in these materials are based on real world data….\nData for this course can be downloaded from the data folder of this course’s repository.\nFor more information about this data, including variable descriptions and sources, see the appendix.",
     "crumbs": [
@@ -32,7 +32,7 @@
   {
     "objectID": "index.html#feedback-and-issues",
     "href": "index.html#feedback-and-issues",
-    "title": "Short course template",
+    "title": "Data visualisation with R",
     "section": "Feedback and issues",
     "text": "Feedback and issues\nThis book is a work in progress and will be updated based on course feedback and requirements of participants. If you spot a bug or mistake in these notes, please let me know by raising an issue.\nIf you enjoyed using these resources and would like to find more of them or attend a live course, please visit my website, follow me on Twitter and LinkedIn, or support more free resources by buying me a coffee!.\nIf you are interested in organising a bespoke course or have consultancy opportunities you think I would be a good fit for, please get in touch!",
     "crumbs": [
@@ -42,11 +42,329 @@
   {
     "objectID": "index.html#license",
     "href": "index.html#license",
-    "title": "Short course template",
+    "title": "Data visualisation with R",
     "section": "License",
     "text": "License\nI believe that science should not be behind a paywall, that is why these materials are available for free online, licensed under a CC BY-SA licence.",
     "crumbs": [
       "Welcome!"
+    ]
+  },
+  {
+    "objectID": "01_intro.html",
+    "href": "01_intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 Why data visualisation?\nData visualisation is arguably one of the most important part of any analysis journey. It is a powerful tool with a wide range of uses, including:\nEach of these intentions may require a different visualisation, but all of them must follow the same design priciples. They must be clear, appropriate, honest, and inclusive.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "01_intro.html#why-data-visualisation",
+    "href": "01_intro.html#why-data-visualisation",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Exploring the data: checking for outliers, potential errors, and generally ‘getting to know’ our data\nGenerating hypotheses: investigating potential trends in the data, identifying important variables to include in a model\nChecking parametric assumptions: validating analysis methods that require certain assumptions to be valid, e.g. distributions of variables\nCommunicating results: often visualisations are far more powerful and concise than text or tables at conveying important messages to readers",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "01_intro.html#a-grammar-of-graphics",
+    "href": "01_intro.html#a-grammar-of-graphics",
+    "title": "1  Introduction",
+    "section": "1.2 A grammar of graphics",
+    "text": "1.2 A grammar of graphics\nAlthough R has a number of options to display data, this course will focus on one of the more popular and flexible approaches, ggplot. ggplot2 is an R package that is a member of the tidyverse, a suite of R packages designed to make data analysis/science more accessible and efficient.\nThe ggplot2 package implements a ‘grammar of graphics’ approach, in which graphs are composed of multiple layers. According to the grammar of graphics, all visualisations must contain three elements: the data, the information we wish to display, and some mapping, describing how to visualise the information.\nTo illustrate this, let’s create a simple visualisation to investigate the relationship between the body mass and flipper length of penguins in the Palmer archipelago, Antarctica.\n\n\n\n\n\n\nWarning\n\n\n\nIf you have never used the pacman package before, install this to your computer using the following function:\n\ninstall.packages('pacman')\n\nThe pacman package is a set of package management functions which is designed to make tasks such as installing and loading packages simpler, and speeds up these processes. The p_load function acts as a wrapper for the library function, which checks to see if a package is present on the current machine, and installs them from CRAN if they are not. If a package exists on a machine, it will load it as usual.\n\n\n\n1pacman::p_load(tidyverse, palmerpenguins)\n\n2data(penguin)\n\n3ggplot(data = penguins)\n\n\n1\n\nWe must first load the R packages we require. This may take a long time if you have never downloaded tidyverse before, do not worry if a lot of text appears, this is normal!!\n\n2\n\nWe then load the dataset we will be using for this part of the course from the palmerpenguins package.\n\n3\n\nThe first element required for a ggplot is the data. As the other two layers are missing, this will just produce a blank plot area.\n\n\n\n\n\n\n\n\n\n\n\n\n4ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g))\n\n\n4\n\nThe second element that is required for a ggplot is the information we wish to present. This is the flipper lengths and body masses of our penguin sample.\n\n\n\n\n\n\n\n\n\n\n\n\n5ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +\n  geom_point()\n\n\n5\n\nThe final element required is some physical markings of the data. As both variables we wish to present are continuous, we could show every observation as a point in a scatterplot. In ggplot2, a marking can be added using a geom function.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nAlthough ggplot2 is part of the tidyverse suite of packages, the pipe symbol (%&gt;% or |&gt;) is replaced with + when adding layers to a ggplot.\n\n\nThe plot may not be pretty, but it contains all three elements required by graphics, and shows a clear positive association between penguins’ flipper length and body mass. Additional layers will be introduced throughout this course to improve the design of this visualisation.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-these-materials",
+    "href": "index.html#how-to-use-these-materials",
+    "title": "Data visualisation with R",
+    "section": "How to use these materials",
+    "text": "How to use these materials\nThis book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned.\nCode examples will be provided in code blocks, such as this one:\n\n1 + 1\n\nCode in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck!\nThroughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.\n\n\n\n\n\n\nNote\n\n\n\nThese boxes will be used to highlight important messages, supplementing the main text.\n\n\n\n\n\n\n\n\nHint\n\n\n\nThese boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!\n\n\n\n\n\n\n\nStyle tip\n\n\nThese boxes contain style tips to ensure that your code follows the Tidyverse style guide, making it as consistent and readable as possible.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThese boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.\n\n\nTo make these notes as accessible as possible, they are available to view in dark mode by toggling the  button. They are also available to download as a PDF file using the  button.\nAll exercise solutions are available in the appendices. Please attempt the exercises yourself first, making full use of R’s built in help files, cheatsheets (where available), and example R code in this book. Going straight to the solutions to copy and paste the code without thinking will not help you after the course!\nSome exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:\n:::{callout-caution collapse=“true} ## Exercise hint\nThe functions you will need for this exercise are filter and count. :::",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "data_description.html",
+    "href": "data_description.html",
+    "title": "Data description",
+    "section": "",
+    "text": "Where is this data from?",
+    "crumbs": [
+      "Appendices",
+      "Data description"
+    ]
+  },
+  {
+    "objectID": "data_description.html#description-of-variables",
+    "href": "data_description.html#description-of-variables",
+    "title": "Data description",
+    "section": "Description of variables",
+    "text": "Description of variables",
+    "crumbs": [
+      "Appendices",
+      "Data description"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html",
+    "href": "exercise_solutions.html",
+    "title": "Appendix A — Exercise solutions",
+    "section": "",
+    "text": "A.1 Exercise 1",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "01_intro.html#choosing-the-most-appropriate-visualisation",
+    "href": "01_intro.html#choosing-the-most-appropriate-visualisation",
+    "title": "1  Introduction",
+    "section": "1.3 Choosing the most appropriate visualisation",
+    "text": "1.3 Choosing the most appropriate visualisation\nThe choice of visualisation should be driven first and foremost by the context, the audience, and the goal of the graphic. Often, people choose axes of graphics based on the data available to them. Although the choice of visualisation is influenced (and sometimes restricted) by the number and type of variables available, it should be fundamentally decided based on the message we wish to convey to the readers and the most efficient way to do this.\nMost common visualisations can be generated in ggplot2 using a geom function. There are many options available, some of which will be covered throughout this course, many will not. Table 1.1 provides a sample of some of the most common visualisation types, classified by the number and type of variables they are compatible with. For many more options, including many non-standard graphs, visit the From data to viz or view R code examples through their R graph gallery.\n\n\n\n\nTable 1.1: Common data visualisations, classified by type and number of variables, presented with the geom function used to generate them.\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables\nType of variables\nName of visualisation\nR function\n\n\n\n\nOne variable\nCategorical\nFrequency table\ntable\n\n\n\n\nBar chart\ngeom_bar\n\n\n\nNumerical\nHistogram\ngeom_histogram\n\n\n\nSpatial\nMap\ngeom_sf\n\n\n\nTemporal\nLine plot\ngeom_line\n\n\nTwo variables\nTwo categorical\nFrequency table\ntable\n\n\n\n\nStacked/side-by-side bar chart\ngeom_bar\n\n\n\nOne numeric, one categorical\nDot plot\ngeom_point\n\n\n\n\nBox plot\ngeom_boxplot\n\n\n\nTwo numerical\nScatterplot\ngeom_point\n\n\n&gt; 2 variables\n&gt; 2 categorical\nTable\ntable\n\n\n\n2 numeric, one categorical, or &gt; 2 numeric\nScatterplot with different colours/symbols/sizes\ngeom_point",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html",
+    "href": "02_aes_geom.html",
+    "title": "2  Aesthetics and geometries",
+    "section": "",
+    "text": "2.1 Aesthetic markings\nAny information that we are presenting that is taken from the data must be given within the aes wrapper. The argument each variable takes within this wrapper depends on the element of the graph which it defines. For example, in the previous example:\nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + \n  geom_point() \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.1: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica.\nThe variables define the x and y axes. Additional variables can be added to a visualisation by using them to customise other elements of a graph, such as:\nFor example, if we wish to show how the relationship between flipper length and body mass differs between penguin species, this could be included within the aes wrapper to change the colour of points:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point() \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.2: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.\nThese aesthetic options can also be changed manually outside of the aes wrapper, within the corresponding geom function. For example, if we wanted to make the points in Figure 2.2 larger, we could adjust the code to the following:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point(size = 5) \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.3: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html#aesthetic-markings",
+    "href": "02_aes_geom.html#aesthetic-markings",
+    "title": "2  Aesthetics and geometries",
+    "section": "",
+    "text": "colour: determines the colour of points (for dot and scatterplots), lines (for line graphs), or borders (for bar charts, histograms and pie charts)\nfill: determines the colour of bars or segments\nshape: changes the symbols presented on dot and scatterplots\nlinetype: customises the type of line displayed (solid by default, but can be used to show dashed lines, etc)\nsize: determines the size of points\nlinewidth: changes the line width\nalpha: controls the transparency of graph elements\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nAlthough you should aim to show as much relevant data as possible, be careful not to overload a plot. Too many variables on the same visualisation can make it less informative, confusing the reader and hiding important messages. In this case, it would be better to have multiple, simpler graphs than a single, complicated graph.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html#geometries",
+    "href": "02_aes_geom.html#geometries",
+    "title": "2  Aesthetics and geometries",
+    "section": "2.2 Geometries",
+    "text": "2.2 Geometries\nMost visual markings within ggplot are determined by a geom object. There are many options within the package that can be used and each requires different combinations of aes markings to work. For example, the scatterplot in ?fig-flipper-mass required x and y to be specified, but a bar chart or histogram would only require x as the y-axis is generated from the data.\n\n\n\n\n\n\nHint\n\n\n\nFor a full list of geometries included in ggplot2, visit the package’s cheatsheet\n\n\nMultiple geometries can be added to the same graph to add information to the plot. These can be used to add information to the graph, such as a reference value or a summary. For example, if we wished to show the difference in the distribution of body mass of penguin species, we could show every individual observation using a point and add a boxplot layer to show the differences in median and interquartile range.\n\n\n\n\n\n\nWarning\n\n\n\nEnsure that the outliers argument of geom_boxplot is set to FALSE to avoid duplicate points.\n\n\n\nggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n1  geom_jitter() +\n2  geom_boxplot(outliers = FALSE, alpha = 075)\n\n\n1\n\nJittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.\n\n2\n\nUse alpha to make the box semi-transparent so we can still see the points underneath.\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Comparison of body mass between penguin species\n\n\n\n\n\nOther useful layers may include geom_hline, geom_vline and geom_abline which add a manually defined horizontal, vertical, or diagonal line respectively. To generate a line of best fit from the data, we can use geom_smooth.\n\n\n\n\n\n\nHint\n\n\n\nBy default, geom_smooth generates a curved line. To change this, change the method argument to an appropriate method. For example, method = \"lm\" generates a straight line or check the helpfile ?geom_smooth for other options.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html#exercise-1",
+    "href": "02_aes_geom.html#exercise-1",
+    "title": "2  Aesthetics and geometries",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nLoad the CSP_2020.csv file into R and save it as an object named csp_2020. Ensure that all variables are correctly specified by type. For more information about this dataset, including the source and variable descriptions, check the appendix.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nTo read a csv file in, use the read_csv function. Consider storing the raw data in its own folder.\nAll variables should be categorised as numberic (or dbl in tidyverse), apart from the authority variable (which should be character) and the region variable (which should be factor). Use the mutate and factor functions to fix this.\n\n\n\n\nThe following code was intended to produce a scatterplot showing the relationship between the sfa_2020 and ct_total_2020 variables with the points in blue. Debug the code to fix the problem:\n\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = \"blue\"))\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nCheck which aesthetic elements are defined by the data and which are defined manually. Consider which of these need to be in the aes wrapper.\n\n\n\n\nAdd a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nUse the geom_smooth function and check the method argument.\nTo figure out what this shaded area is, check the helpfile ?geom_smooth, specifically the arguments se and level.\n\n\n\n\nUse an appropriate visualisation to check the distribution of the sfa_2020 variable. Interpret this visualisation.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nHistograms are used to check the distribution of numeric variables, and are generated using geom_histogram.\nBased on this visualisation, do you think the data are normally distributed? Are there any outliers or potential errors? Use the filter function to investigate outliers.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-1",
+    "href": "exercise_solutions.html#exercise-1",
+    "title": "Appendix A — Exercise solutions",
+    "section": "",
+    "text": "Question 1\nLoad the CSP_2020.csv file into R and save it as an object named csp_2020. Ensure that all variables are correctly specified by type.\n\n\nSolution\nTo load in a csv file, we use the read_csv function and save the data as an object:\n\ncsp_2020 &lt;- read_csv(\"data/CSP_2020.csv\")\n\n\n\n\n\n\nStyle tip\n\n\nObject names should only contain lower case letters, numbers and underscores _. Ensure names are clear and concise. Names must begin with a letter.\n\n\nNext, we must ensure the data has been read correctly. This includes checking the variables and observations have been organised correctly, checking the names of variables are appropriate, and checking the type of variables are correctly specified:\n\n1View(csp_2020)\n\n2str(csp_2020)\n\n\n1\n\nView produces a preview of the dataset that appears as a tab by the script files.\n\n2\n\nstr returns information about the structure of an object, including its type, and for data frames, the variable names and types.\n\n\n\n\nspc_tbl_ [315 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ ons_code        : chr [1:315] \"E07000223\" \"E07000026\" \"E07000032\" \"E07000224\" ...\n $ authority       : chr [1:315] \"Adur\" \"Allerdale\" \"Amber Valley\" \"Arun\" ...\n $ region          : chr [1:315] \"SE\" \"NW\" \"EM\" \"SE\" ...\n $ sfa_2020        : num [1:315] 1.77 3.85 3.23 3.67 4.08 ...\n $ under_index_2020: num [1:315] 0.0708 0.1465 0.1292 0.147 0.1557 ...\n $ ct_total_2020   : num [1:315] 6.53 5.4 6.85 11.61 6.42 ...\n $ nhb_2020        : num [1:315] 0.0881 0.6061 1.5786 2.2949 1.1547 ...\n $ rsdg_2020       : num [1:315] 0 0.326 0 0 0 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   ons_code = col_character(),\n  ..   authority = col_character(),\n  ..   region = col_character(),\n  ..   sfa_2020 = col_double(),\n  ..   under_index_2020 = col_double(),\n  ..   ct_total_2020 = col_double(),\n  ..   nhb_2020 = col_double(),\n  ..   rsdg_2020 = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nAll variables appear to be correctly specified besides the region variable which is a grouped category, or factor in R. To ensure this is correctly specified, we should convert this variable. It is possible to assign order to factor variables. Without assigning an order, all outputs including visualisations, will show regions in alphabetical order. Here, we may with to set London as the control region, followed by regions ordered from north to south:\n\ncsp_2020 &lt;- csp_2020 %&gt;% \n  mutate(region_fct = factor(region, \n                             levels = c(\"L\", \"NW\", \"NE\", \"YH\", \"WM\", \n                                        \"EM\", \"EE\", \"SW\", \"SE\")))\n\n\n\nQuestion 2\nThe following code was intended to produce a scatterplot showing the relationship between the sfa_2020 and ct_total_2020 variables with the points in blue. Debug the code to fix the problem:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = \"blue\"))\n\n\n\n\n\n\n\n\n\n\nSolution\nAs the colour is specified manually, rather than by a variable in the data, it must be placed outside the aes wrapper:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020), colour = \"blue\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nAesthetic markings (defined in the aes wrapper) can be included in the ggplot function if they are constant for each layer, or separately within each geom function.\n\n\n\n\nQuestion 3\nAdd a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?\n\n\nSolution\nLines of best fit can be added using the geom_smooth function. Be sure to set method = \"lm\" to fit a straight line:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe shaded area around the line represents the 95% confidence interval (see the se argument of the helpfile ?geom_smooth). This can be removed by changing the default setting of this argument:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\nQuestion 4\nUse an appropriate visualisation to check the distribution of the sfa_2020 variable. Interpret this visualisation.\n\n\nSolution\nHistograms are used to investigate the distribution of numeric variables:\n\nggplot(data = csp_2020) +\n1  geom_histogram(aes(x = sfa_2020),\n2                 colour = \"black\", fill = \"grey45\")\n\n\n1\n\ngeom_histogram only requires x to be specified as the y-axis is a count.\n\n2\n\nOptional customisation to make the plot nicer to look at!\n\n\n\n\n\n\n\n\n\n\n\nThe sfa_2020 variable is not normally distributed, it is positively skewed (also known as right-skewed and upwardly skewed). The majority of local authorities had relatively low values. There is one very high outlier, with an SFA of almost £500 million. We can learn more about this observation by extracting it from the data:\n\nfilter(csp_2020, sfa_2020 &gt; 400)\n\n# A tibble: 1 × 9\n  ons_code  authority  region sfa_2020 under_index_2020 ct_total_2020 nhb_2020\n  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;\n1 E08000025 Birmingham WM         470.             14.4          366.     7.24\n# ℹ 2 more variables: rsdg_2020 &lt;dbl&gt;, region_fct &lt;fct&gt;\n\n\nThe outlying value is Birmingham. This is a large city in England and one of the most highly populated local authorities in Europe! As this local authority contains such a high population, it makes sense that it would receive more funding than smaller local authorities. Therefore, this outlier is not an error and should not be removed from analysis, although we should make a note of it as it may skew results.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "03_scales.html",
+    "href": "03_scales.html",
+    "title": "3  Scale functions",
+    "section": "",
+    "text": "3.1 Customising axes\nScale functions that customise axes generally take the form scale_axis to customise_scale of variable. For example, Figure 2.4 would require scale_y_continuous to customise the numeric y-axis and scale_x_discrete to customise the categorical x-axis.\nAxes scale functions contain many options that can be used to change the axis title, limits and ticks, amongst other things. Some of the most common arguments include:\nggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n  geom_jitter() + \n  geom_boxplot(alpha = .75) +\n  scale_x_discrete(name = \"penguin species\", expand = expansion(mult = .2)) +\n  scale_y_continuous(name =  \"body mass (g)\", breaks = c(3000, 4000, 5000))\n\n\n\n\n\n\n\nFigure 3.1: Comparison of body mass between penguin species",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
+    ]
+  },
+  {
+    "objectID": "03_scales.html#customising-axes",
+    "href": "03_scales.html#customising-axes",
+    "title": "3  Scale functions",
+    "section": "",
+    "text": "name = changes the axis title\nlimits = c(...) sets the axis limits\nbreaks = c(...) defines tick marks\nlabels = c(...) attaches labels to break points\nexpand = expansion(0) removes the default blank space around the axis limits (this can also be used to add space by replacing 0 with either add = or mult = depending if this change is additive or multiplicative)\ntransform = transform the scale the axis is shown on. Transformations include reverse, sqrt, log, etc. For a full list, view the appropriate help file\n\n\n\n\n\n\n\n\nWarning\n\n\n\nDo not adjust axis limits if this can potentially distort the data. Visualisations should adhere to the principle of proportional ink. That is, the amount of ink used in a visualisation should be proportional to the quantities it represents. Bar charts with a y-axis that does not begin at 0 is a common example of a violation of this principle.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html#exporting-visualisations",
+    "href": "02_aes_geom.html#exporting-visualisations",
+    "title": "2  Aesthetics and geometries",
+    "section": "2.3 Exporting visualisations",
+    "text": "2.3 Exporting visualisations\nVisualisations created in RStudio can be exported manually from the RStudio interface by clicking the  button. This allows visualisations to be copied and pasted into documents (using the Copy to clipboard option) or saved as an image (for example, .png or .jpg) or PDF. Visualisations can also be stored as objects using the &lt;- symbol. These objects can then be saved using the ggsave function:\n\nspecies_mass_plot &lt;- ggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n  geom_jitter() + \n  geom_boxplot(alpha = .75) \n\nggsave(species_mass_plot, filename = \"output/species_mass_plot.png\")\n\nThe ggsave function can be customised to change the file type, height, width and resolution (using the dpi argument).\n\n\n\n\n\n\nHint\n\n\n\nggsave is compatible with a range of file types, including png, jpg, pdf and svg. Saving these visualisations in a vectorised format, such as svg allows graph elements to be edited outside of R. For example, after pasting an exported svg file into Microsoft Word, ungroup the image. This allows customisation of axes text, legends, background colours, etc.\nExternal editing is not recommended as output would no longer be reproducible via R.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "03_scales.html#customising-colour-scales",
+    "href": "03_scales.html#customising-colour-scales",
+    "title": "3  Scale functions",
+    "section": "3.2 Customising colour scales",
+    "text": "3.2 Customising colour scales\nThere is a wide range of options available for customising colour and fill aesthetics within ggplot2. The choice will depend on the type of variable determining colours (whether it is numeric or categorical) and whether we want to use a pre-defined colour palette or manually specify our own.\n\n\n\n\n\n\nWarning\n\n\n\nWhen choosing a colour palette, be sure that all colours are distinct to everyone, including those with colour-vision deficiencies. To help check this is the case, use a colour blindness simulator to see what a visualisation looks like under different types of colour blindness.\nAvoid potentially harmful stereotypes when choosing colours to represent groups, and avoid cyclical palettes, such as the rainbow palette, to avoid confusion between high and low values.\n\n\n\n\n3.2.1 Pre-built colour palettes\nThere are thousands of colour palettes that are available within R. Some of them are included within the ggplot2 package, but there are many others that require additional package installation. This website gives a list and preview of all palettes currently available.\nColour palettes included within the ggplot2 package (and therefore don’t require any additional packages) are the viridis and colorbrewer scales. Both contain palettes that are colourblind friendly and can be used for either continuous or discrete scales.\nFor continuous data, use scale_colour_viridis_c or scale_colour_distiller to select one of the in-built colour palettes (replace colour with fill when dealing with bars). For discrete or categorical variables, use scale_colour_viridis_d or scale_colour_brewer instead.\nFor example, we could use a stacked bar chart to show the different number of penguins recorded per year by species. Each bar will represent the total observations per year, which will be separated into smaller bars per species. Each species will be assigned a different colour using the Dark2 colour scheme:\n\nggplot(data = penguins, \n1       aes(x = year, fill = species)) +\n2  geom_bar(colour = \"black\") +\n  scale_fill_brewer(palette = \"Dark2\") \n\n\n1\n\nUse the species variable to change the colour of the bars.\n\n2\n\nManually set the border of each bar to black to make it easier to see.\n\n\n\n\n\n\n\n\n\n\nFigure 3.2\n\n\n\n\n\n\n\n\n\n\n\nHint\n\n\n\nThe geom_bar function contains the argument position which is set to position = \"identity\" by default, producing a stacked bar chart. Changing this option to \"fill\" would convert the graph to a proportional bar chart where each bar has the same height, comparing proportions across groups. Changing the position argument to \"dodge\" creates a side-by-side bar chart:\nggplot(data = penguins, \n       aes(x = year, fill = species)) + \n  geom_bar(colour = \"black\", position = \"fill\") + \n  scale_fill_brewer(palette = \"Dark2\") \nggplot(data = penguins, \n       aes(x = year, fill = species)) +\n  geom_bar(colour = \"black\", position = \"dodge\") + \n  scale_fill_brewer(palette = \"Dark2\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2.2 Customising colour palettes\nThere are various way of creating your own colour palette if you (or the organisation you are working with) have preferred colours.\nFor discrete or categorical variables, the scale_colour_manual (or scale_fill_manual) function allows colours to be specified using the values argument.\n\n\n\n\n\nStyle tip\n\n\nR contains a list of 657 pre-programmed colours that can be used to create palettes (run colours() in the console for a full list).\nHexadecimal codes can also be included instead in the form #rrggbb (where rr (red), gg (green), and bb (blue) are numbers between 00 and 99 giving the level of intensity of each colour).\n\n\n\n1species_palette &lt;- c(\"orchid\", \"turquoise\", \"rosybrown\")\n\nggplot(data = penguins, \n       aes(x = year, fill = species)) +\n  geom_bar(colour = \"black\") + \n2  scale_fill_manual(values = species_palette)\n\n\n1\n\nTo avoid repetitive coding, define the colour palette as an object.\n\n2\n\nEither list colour values or include the palette object. Ensure there are the same number of values as categories.\n\n\n\n\n\n\n\n\n\n\nFigure 3.3\n\n\n\n\n\nWhen including a continuous variable, palettes can be created using gradients. The choice of function depends on the number of gradients required:\n\nscale_colour_gradient / scale_fill_gradient: specifies a two colour gradient based on a low and high value\nscale_colour_gradient2 / scale_fill_gradient2: specifies a three colour gradient based on a low, mid (defined by the midpoint argument), and high value\nscale_colour_gradientn / scale_fill_gradientn: specifies a palette with more than three colours, customised by setting colours and corresponding values.\n\nFor example, Figure 2.1 could be extended to include information about the bill length of penguins:\n\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = bill_length_mm)) +\n  geom_point() +\n  scale_colour_gradient(name = \"bill length (mm)\",\n                        high = \"#8e3e63\", low = \"#F85525\")\n\n\n\n\n\n\n\nFigure 3.4: Scatterplot showing the flipper length, bill length and body mass of penguins in the Palmer Archipelago, Antarctica.\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure that the colours used to define gradients are distinct enough to make the graph clear (unlike the colours I used in Figure 3.4!).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-2",
+    "href": "exercise_solutions.html#exercise-2",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.2 Exercise 2",
+    "text": "A.2 Exercise 2\n\nA.2.1 Question 1\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\nSolution\nThe current data set does not contain a the total core spending power. To create this, we can use the mutate function.\n\n\n\n\n\n\nHint\n\n\n\nTo avoid typing each of the variable names out, use the names(csp_2020) function to return them in the console, then copy and paste them.\n\n\n\ncsp_2020 &lt;- mutate(csp_2020,\n                   total_spend = sfa_2020 + under_index_2020 + \n                   ct_total_2020 + nhb_2020 + rsdg_2020)\n\nA dot plot or boxplot would be appropriate to compare the total CSP between regions. To show as much information as possible, we can include both on the same graph:\n\nggplot(data = csp_2020, \n       aes(x = region_fct, y = total_spend)) +\n  geom_jitter() +\n  geom_boxplot(alpha = .75, outliers = FALSE)\n\n\n\n\n\n\n\n\nTo highlight the London region, we can add a variable to the data that takes the value 1 for London, and 0 otherwise. This can then be included in the visualisation within the aes wrapper.\n\n\n\n\n\n\nHint\n\n\n\nWhere a variable is created just for a visualisation, this can be carried out in a single process using pipes %&gt;%. The data argument is no longer required as it is specified using the pipe.\n\n\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75)\n\n\n\n\n\n\n\n\n\n\nA.2.2 Question 2\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\nSolutions\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75) +\n  scale_x_discrete(name = \"Region\") +\n  scale_y_continuous(name = \"Core spending power (£ millions)\",\n                     breaks = seq(0, 600, by = 100)) +\n  scale_colour_manual(name = \"\", values = c(\"black\", \"hotpink\"))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "04_annotation.html",
+    "href": "04_annotation.html",
+    "title": "4  Annotations and titles",
+    "section": "",
+    "text": "4.1 Plot and axis titles\nIn the previous section, we saw how axis and legend titles can be added within scale functions using the name argument. ggplot2 also contains the labs function which can be added as a separate layer to control these titles and can also add plot titles, subtitles and footnotes:\nggplot(data = penguins, \n       aes(x = year, fill = species)) +\n  geom_bar(colour = \"black\") +\n  scale_fill_brewer(palette = \"Dark2\") +\n  labs(title = \"This is the plot title\",\n      subtitle = \"This is a subtitle\",\n      caption = \"This is a caption, useful for source information.\",\n      x = \"x-axis title\", y = \"y-axis title\", \n      fill = \"Legend title\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Annotations and titles</span>"
+    ]
+  },
+  {
+    "objectID": "04_annotation.html#plot-and-axis-titles",
+    "href": "04_annotation.html#plot-and-axis-titles",
+    "title": "4  Annotations and titles",
+    "section": "",
+    "text": "Style tip\n\n\nMathematical equations can be added into labs arguments by surrounding the text with the quote() function. Check ?plotmath for examples of equation syntax.\n\\n can be used to specify line breaks within the labs arguments.\nSpecifying any of these arguments as NULL (no speech marks) removes the title from the visualisation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Annotations and titles</span>"
+    ]
+  },
+  {
+    "objectID": "04_annotation.html#annotations",
+    "href": "04_annotation.html#annotations",
+    "title": "4  Annotations and titles",
+    "section": "4.2 Annotations",
+    "text": "4.2 Annotations\nAnnotations can be useful to include context to visualisations and draw attention to important messages. Annotations can include text labels, reference lines and shading, amongst others. ggplot2 contains a number of geom objects that can be used to add annotation layers to a visualisation. As these annotations are added within geoms, they can be specified using values from the data (when wrapped in the aes function) or manually. This section will cover some common annotations but there are many others available (see the ggplot ebook for a more comprehensive list).\n\n4.2.1 Text labels\nText labels can either be added using geom_text or geom_label (which adds text surrounded by a rectangular box, making it easier to read on busy backgrounds). Aesthetics such as x, y and colour can be used to customise text labels (either manually or from the data). Other aesthetics that can be added include:\n\nlabel defines the text displayed\nangle rotates the text\nfamily defines the font\nfontface can be changed to make text \"bold\" or \"italic\"\n\n\nggplot(data = penguins,\n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  geom_text(label = \"Bold text\", y = 6000, x = 180, fontface = \"bold\",\n            colour = \"black\") +\n  geom_label(label = \"Italicised \\n text\", y = 3500, x = 220, \n             fontface = \"italic\", colour = \"black\")\n\n\n\n\n\n\n\nFigure 4.1: Scatterplot showing the size and mass of penguin species in the Palmer Archipelago, Antarctica.\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nAs the aes wrapper has been specified at the ggplot layer, this will be applied to all geoms, including out text and labels. To overwrite this, we can specify the colour manually.\n\n\n\n\n\n\n\n\nHint\n\n\n\nWhere text and label positions are determined by data, you may also wish to utilise the nudge_x and nudge_y arguments to shift annotations and avoid overlap.\n\n\nAdding text through geoms will work but notice that the annotations looks a little blurry on the text. This is because geom layers take the data into account and assume that you want the same number of layers/markings as observations in the data. This means that rather than adding a single text or label, ggplot is actually adding 342. To overcome this, we can use the annotate function instead.\n\n\n4.2.2 Annotate function\nThe annotate function will add single geom layers to a visualisation while disregarding the rest of the data. This is useful when adding annotations such as text, labels, shapes or arrows. annotate functions require the same arguments as the corresponding geom, with an additional argument that specifies the geom we require.\nFor example, we can adapt the code used to create Figure 4.1 to utilise the annotate functions instead:\n\nggplot(data = penguins,\n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  annotate(\"text\", label = \"Bold text\", y = 6000, x = 180, \n1           fontface = \"bold\") +\n  annotate(\"label\", label = \"Italicised \\n text\", y = 3500, x = 220, \n             fontface = \"italic\")\n\n\n1\n\nThe annotate functions no longer require colour to be specified (unless we want to change it) as it is not generated using the data.\n\n\n\n\n\n\n\n\n\n\nFigure 4.2: Scatterplot showing the size and mass of penguin species in the Palmer Archipelago, Antarctica.\n\n\n\n\n\nText labels can be combined with curves and arrows to make them clearer, using the curve or segment geoms. Both contain the optional argument arrow which adds an arrow to the curved line (this must be defined within the arrow function, which can be used to adjust the size or shape of the arrow):\n\nggplot(data = penguins,\n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  annotate(\"curve\", x = 185, y = 5500, xend = 195, yend = 4700, \n           curvature = -.3, arrow = arrow(length = unit(.25, \"cm\"))) +\n  annotate(\"text\", x = 185, y = 5600, label = \"Important penguin\")\n\n\n\n\n\n\n\nFigure 4.3: Scatterplot showing the size and mass of penguin species in the Palmer Archipelago, Antarctica.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Annotations and titles</span>"
+    ]
+  },
+  {
+    "objectID": "03_scales.html#exercise-2",
+    "href": "03_scales.html#exercise-2",
+    "title": "3  Scale functions",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nIf the total spend is not in the current dataset, create it! Also consider how colour could be included in the aes wrapper, and if this does not currently exist in the data, create it!\nYou will need the mutate and if_else functions.\n\n\n\n\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nbreaks can either be manually specified or a function can be used to generate the list (check the seq function).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-3",
+    "href": "exercise_solutions.html#exercise-3",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.3 Exercise 3",
+    "text": "A.3 Exercise 3\n\nA.3.1 Question 1\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\nSolution\nA scatterplot is the most appropriate method of investigating the relationship between continuous variables. Include region as a colour. Add lines of best fit to make these relationships clearer. Add a labs layer to add appropriate titles. Add an annotation to explain the outlier (Birmingham).\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020, colour = region_fct)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\",\n       colour = \"Region\") +\n  annotate(\"text\", x = 300, y = 350,\n           label = \"Birmingham, the largest \\nlocal authority in Europe.\") + \n  annotate(\"curve\", x = 300, y = 310, xend = 460, yend = 360, \n           arrow = arrow(length = unit(.25, \"cm\")))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "04_annotation.html#exercise-3",
+    "href": "04_annotation.html#exercise-3",
+    "title": "4  Annotations and titles",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nInclude region in the aes wrapper. Consider adding a line of best fit per region to make these relationships clearer.\nThis dataset has a clear outlier. Highlight this for readers.\nYour ggplot should contain annotate and labs layers.\n\n\n\n\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nAdd an extra geom_point layer to highlight the North West region.\nUse annotate layers to define the highlighted point meaning in the graph area. If you are really stuck, check (this ebook)[https://ggplot2-book.org/annotations#sec-text-labels] for inspiration.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Annotations and titles</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#question-2-2",
+    "href": "exercise_solutions.html#question-2-2",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.4 Question 2",
+    "text": "A.4 Question 2\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#solution-6",
+    "href": "exercise_solutions.html#solution-6",
+    "title": "Appendix A — Exercise solutions",
+    "section": "Solution",
+    "text": "Solution\nPoints in the North West can be highlighted by adding coloured points beneath these observations. An annotation can then be added to the graph area with a highlighted point and “North West” text label:\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(data = filter(csp_2020, region == \"NW\"),\n             size = 3, colour = \"springgreen\") +\n  geom_point() +\n    labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\") +\n  annotate(\"point\", x = 300, y = 100, size = 3, colour = \"springgreen\") +\n  annotate(\"point\", x = 300, y = 100) +\n  annotate(\"text\", x = 350, y = 100, label = \"North West\",\n           size = 5)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "05_theme.html",
+    "href": "05_theme.html",
+    "title": "5  Themes",
+    "section": "",
+    "text": "5.1 Pre-built themes\nThere are 8 complete themes programmed in the ggplot2 package. These are:\nEach theme function can be added as a layer in a ggplot object. For other pre-built themes, check out the ggthemes package).",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Themes</span>"
+    ]
+  },
+  {
+    "objectID": "05_theme.html#pre-built-themes",
+    "href": "05_theme.html#pre-built-themes",
+    "title": "5  Themes",
+    "section": "",
+    "text": "Style tip\n\n\nAlthough pre-built theme functions do not require arguments to run, they all contain the optional argument base_size which set the default font size (defaulted to 11). To ensure visualisations are as accessible and inclusive as possible, ensure this is set to at least 12 for printed graphs or 36 for presentations.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Themes</span>"
+    ]
+  },
+  {
+    "objectID": "05_theme.html#customising-themes",
+    "href": "05_theme.html#customising-themes",
+    "title": "5  Themes",
+    "section": "5.2 Customising themes",
+    "text": "5.2 Customising themes\nIndividual elements of a visualisation’s theme can be customised within the theme functions. Many elements that can be customised using the theme require an element wrapper. This wrapper is determined by the type of object that we are customising, the four options are:\n\nelement_text when customising text, e.g. axis titles and labels\nelement_rect when customising backgrounds, e.g. the graph area\nelement_line when customising lines, e.g. gridlines\nelement_blank to remove elements\n\nElements that do not require these wrappers are often related to positioning. A common example of this is the legend.position argument which can be set to \"left\", \"right\" (default), \"top\", \"bottom\", or removed using \"none\".\nFor example, we will customise elements of the scatterplot in Figure 4.1 using the theme functions:\n\nminimal_plot &lt;- ggplot(data = penguins,\n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  theme_minimal() \n\nminimal_plot\n\n\n\n\n\n\n\n\n\nminimal_plot +\n1  theme(legend.position = \"bottom\",\n2        axis.title = element_text(size = 16),\n3        axis.text = element_text(size = 14, angle = -30),\n        legend.title = element_text(size = 16),\n        legend.text = element_text(size = 14),\n4        panel.background = element_rect(fill = \"thistle\",\n                                        colour = \"grey\"),\n5        panel.grid.major = element_line(colour = \"black\"),\n6        panel.grid.minor = element_line(colour = \"grey45\",\n                                        linetype = \"dashed\"))\n\n\n1\n\nMoves the legend to the bottom of the graph.\n\n2\n\nSets the axis title labels to size 16.\n\n3\n\nSets the axis text (tick marks) to size 14 and rotates them 30 degrees clockwise.\n\n4\n\nSets the plot background to thistle with a grey outline.\n\n5\n\nAdds black major grid lines.\n\n6\n\nAdds grey, dashed minor grid lines.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStyle tip\n\n\nGood visualisations require a middle ground between overly minimal design, which can make interpretation difficult, and charts overloaded with clutter. The bold grid lines on this visualisations are a good example of where ‘chart junk’ can distract from the data.\nVisualisations should strive to make the data are the most important part of the graphic, whilst ensuring there is sufficient context provided by non-data elements.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Themes</span>"
+    ]
+  },
+  {
+    "objectID": "05_theme.html#creating-a-theme",
+    "href": "05_theme.html#creating-a-theme",
+    "title": "5  Themes",
+    "section": "5.3 Creating a theme",
+    "text": "5.3 Creating a theme\nOne benefits of using theme functions is that visualisations will remain consistent in terms of their design. Custom themes can be saved as functions and added to ggplot objects in place of the in-built themes. For example,\n\ntheme_dataviz &lt;- function() {\n  theme_minimal() +\n  theme(legend.position = \"bottom\",\n        axis.title = element_text(size = 16), \n        axis.text.x = element_text(size = 12, angle = -30, \n                                   vjust = 0), \n        axis.text.y = element_text(size = 12, hjust = 0),\n        legend.title = element_text(size = 16),\n        legend.text = element_text(size = 12),\n        panel.background = element_rect(fill = \"linen\", \n                                        colour = \"grey\"), \n        panel.grid.major = element_line(colour = \"grey45\"),\n        panel.grid.minor = element_line(colour = \"grey75\", \n                                        linetype = \"dashed\")) \n}\n\nggplot(data = penguins,\n       aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  theme_dataviz()",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Themes</span>"
+    ]
+  },
+  {
+    "objectID": "06_facet.html",
+    "href": "06_facet.html",
+    "title": "6  Faceting",
+    "section": "",
+    "text": "Faceting allows us to divide a plot into subplots based on some grouping variable within the data. This allows us to show multiple variables in the same visualisation without risking overloading the plot and losing the intended message.\nThere are two approaches to faceting within ggplot2:\n\nfacet_wrap separates observations into separate graphs based on a single variable. This variable is entered into the function with a vars wrapper, the number of rows or columns are specified using the nrow and ncol arguments.\nfacet_grid produces a 2d grid of panels, where the rows and columns are defined by variables. Variables are included separated by ~ (facet_grid(rows ~ cols)).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Faceting</span>"
     ]
   }
 ]
