@@ -5,7 +5,6 @@ project:
 book:
   title: "Data visualisation with R"
   author: "Sophie Lee"
-  date: 2024-09-04
   downloads: [pdf]  
   search: true
   navbar:
@@ -26,6 +25,7 @@ book:
     - 06_facet.qmd
   appendices: 
     - data_description.qmd
+    - resources.qmd
     - exercise_solutions.qmd
 
 format:

@@ -24,6 +24,7 @@ Any information that we are presenting that is taken from the data must be given
 ```{r}
 #| label: fig-flipper-mass-scatter
 #| fig-cap: "Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica."
+#| warning: false
 
 ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + 
   geom_point() 
@@ -44,6 +45,7 @@ For example, if we wish to show how the relationship between flipper length and 
 ```{r}
 #| label: fig-flipper-mass-spec
 #| fig-cap: "Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species."
+#| warning: false
 
 ggplot(data = penguins, 
        aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + 
@@ -66,7 +68,7 @@ ggplot(data = penguins,
 ```
 
 ## Geometries
-Most visual markings within `ggplot` are determined by a `geom` object. There are many options within the package that can be used and each requires different combinations of `aes` markings to work. For example, the scatterplot in @fig-flipper-mass required `x` and `y` to be specified, but a bar chart or histogram would only require `x` as the y-axis is generated from the data. 
+Most visual markings within `ggplot` are determined by a `geom` object. There are many options within the package that can be used and each requires different combinations of `aes` markings to work. For example, the scatterplot in @fig-flipper-mass-spec required `x` and `y` to be specified, but a bar chart or histogram would only require `x` as the y-axis is generated from the data. 
 
 :::{.callout-tip}
 ## Hint
@@ -87,7 +89,7 @@ Ensure that the `outliers` argument of `geom_boxplot` is set to `FALSE` to avoid
 ggplot(data = penguins, 
        aes(x = species, y = body_mass_g)) +
   geom_jitter() + #<1>
-  geom_boxplot(outliers = FALSE, alpha = 075) #<2>
+  geom_boxplot(outliers = FALSE, alpha = 0.75) #<2>
 ```
 
 1. Jittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.

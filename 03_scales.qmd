@@ -91,6 +91,7 @@ ggplot(data = penguins,
   geom_bar(colour = "black", position = "fill") + 
   scale_fill_brewer(palette = "Dark2") 
 
+
 ggplot(data = penguins, 
        aes(x = year, fill = species)) +
   geom_bar(colour = "black", position = "dodge") + 

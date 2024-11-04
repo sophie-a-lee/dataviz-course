@@ -10,11 +10,11 @@
     ]
   },
   {
-    "objectID": "index.html#how-to-use-this-book",
-    "href": "index.html#how-to-use-this-book",
-    "title": "Short course template",
-    "section": "How to use this book",
-    "text": "How to use this book\nThis book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned.\nCode examples will be provided in code blocks, such as this one:\n\n1 + 1\n\nCode in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck!\nThroughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.\n\n\n\n\n\n\nNote\n\n\n\nThese boxes will be used to highlight important messages, supplementing the main text.\n\n\n\n\n\n\n\n\nHint\n\n\n\nThese boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!\n\n\n\n\n\n\n\nStyle tip\n\n\nThese boxes contain style tips to ensure that your code follows the Tidyverse style guide, making it as consistent and readable as possible.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThese boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.\n\n\nTo make these notes as accessible as possible, they are available to view in dark mode by toggling the  button. They are also available to download as a PDF file using the  button.\nAll exercise solutions are available in the appendices. Please attempt the exercises yourself first, making full use of R’s built in help files, cheatsheets (where available), and example R code in this book. Going straight to the solutions to copy and paste the code without thinking will not help you after the course!\nSome exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:\n:::{callout-caution collapse=“true} ## Exercise hint\nThe functions you will need for this exercise are filter and count. :::",
+    "objectID": "index.html#how-to-use-these-materials",
+    "href": "index.html#how-to-use-these-materials",
+    "title": "Data visualisation with R",
+    "section": "How to use these materials",
+    "text": "How to use these materials\nThis book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned.\nCode examples will be provided in code blocks, such as this one:\n\n1 + 1\n\nCode in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck!\nThroughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.\n\n\n\n\n\n\nNote\n\n\n\nThese boxes will be used to highlight important messages, supplementing the main text.\n\n\n\n\n\n\n\n\nHint\n\n\n\nThese boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!\n\n\n\n\n\n\n\nStyle tip\n\n\nThese boxes contain style tips to ensure that your code follows the Tidyverse style guide, making it as consistent and readable as possible.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThese boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.\n\n\nTo make these notes as accessible as possible, they are available to view in dark mode by toggling the  button. They are also available to download as a PDF file using the  button.\nAll exercise solutions are available in the appendices. Please attempt the exercises yourself first, making full use of R’s built in help files, cheatsheets (where available), and example R code in this book. Going straight to the solutions to copy and paste the code without thinking will not help you after the course!\nSome exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:\n:::{callout-caution collapse=“true”} ## Exercise hint\nThe functions you will need for this exercise are filter and count. :::",
     "crumbs": [
       "Welcome!"
     ]
@@ -80,49 +80,6 @@
     ]
   },
   {
-    "objectID": "index.html#how-to-use-these-materials",
-    "href": "index.html#how-to-use-these-materials",
-    "title": "Data visualisation with R",
-    "section": "How to use these materials",
-    "text": "How to use these materials\nThis book provides a combination of written explanations, code examples, and practical exercises to allow you to practice what you have learned.\nCode examples will be provided in code blocks, such as this one:\n\n1 + 1\n\nCode in these blocks can be copied and pasted into your R session to save time when coding. We recommend typing the code yourself to familiarise yourself with the coding process and use the copy option if you are really stuck!\nThroughout the book, you will see colour-coded boxes which are used to highlight important points, give warnings, or give tips such as keyboard shortcuts.\n\n\n\n\n\n\nNote\n\n\n\nThese boxes will be used to highlight important messages, supplementing the main text.\n\n\n\n\n\n\n\n\nHint\n\n\n\nThese boxes will contain useful hints, such as keyboard shortcuts, that can make your coding life a little easier!\n\n\n\n\n\n\n\nStyle tip\n\n\nThese boxes contain style tips to ensure that your code follows the Tidyverse style guide, making it as consistent and readable as possible.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nThese boxes will contain warnings and highlight areas where you need to be more cautious in your coding or analysis.\n\n\nTo make these notes as accessible as possible, they are available to view in dark mode by toggling the  button. They are also available to download as a PDF file using the  button.\nAll exercise solutions are available in the appendices. Please attempt the exercises yourself first, making full use of R’s built in help files, cheatsheets (where available), and example R code in this book. Going straight to the solutions to copy and paste the code without thinking will not help you after the course!\nSome exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:\n:::{callout-caution collapse=“true} ## Exercise hint\nThe functions you will need for this exercise are filter and count. :::",
-    "crumbs": [
-      "Welcome!"
-    ]
-  },
-  {
-    "objectID": "data_description.html",
-    "href": "data_description.html",
-    "title": "Data description",
-    "section": "",
-    "text": "Where is this data from?",
-    "crumbs": [
-      "Appendices",
-      "Data description"
-    ]
-  },
-  {
-    "objectID": "data_description.html#description-of-variables",
-    "href": "data_description.html#description-of-variables",
-    "title": "Data description",
-    "section": "Description of variables",
-    "text": "Description of variables",
-    "crumbs": [
-      "Appendices",
-      "Data description"
-    ]
-  },
-  {
-    "objectID": "exercise_solutions.html",
-    "href": "exercise_solutions.html",
-    "title": "Appendix A — Exercise solutions",
-    "section": "",
-    "text": "A.1 Exercise 1",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
-    ]
-  },
-  {
     "objectID": "01_intro.html#choosing-the-most-appropriate-visualisation",
     "href": "01_intro.html#choosing-the-most-appropriate-visualisation",
     "title": "1  Introduction",
@@ -137,7 +94,7 @@
     "href": "02_aes_geom.html",
     "title": "2  Aesthetics and geometries",
     "section": "",
-    "text": "2.1 Aesthetic markings\nAny information that we are presenting that is taken from the data must be given within the aes wrapper. The argument each variable takes within this wrapper depends on the element of the graph which it defines. For example, in the previous example:\nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + \n  geom_point() \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.1: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica.\nThe variables define the x and y axes. Additional variables can be added to a visualisation by using them to customise other elements of a graph, such as:\nFor example, if we wish to show how the relationship between flipper length and body mass differs between penguin species, this could be included within the aes wrapper to change the colour of points:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point() \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.2: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.\nThese aesthetic options can also be changed manually outside of the aes wrapper, within the corresponding geom function. For example, if we wanted to make the points in Figure 2.2 larger, we could adjust the code to the following:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point(size = 5) \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.3: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.",
+    "text": "2.1 Aesthetic markings\nAny information that we are presenting that is taken from the data must be given within the aes wrapper. The argument each variable takes within this wrapper depends on the element of the graph which it defines. For example, in the previous example:\nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + \n  geom_point() \n\n\n\n\n\n\n\nFigure 2.1: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica.\nThe variables define the x and y axes. Additional variables can be added to a visualisation by using them to customise other elements of a graph, such as:\nFor example, if we wish to show how the relationship between flipper length and body mass differs between penguin species, this could be included within the aes wrapper to change the colour of points:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point() \n\n\n\n\n\n\n\nFigure 2.2: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.\nThese aesthetic options can also be changed manually outside of the aes wrapper, within the corresponding geom function. For example, if we wanted to make the points in Figure 2.2 larger, we could adjust the code to the following:\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, colour = species)) + \n  geom_point(size = 5) \n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 2.3: Scatterplot showing the size and mass of penguins in the Palmer Archipelago, Antarctica by species.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
     ]
@@ -157,7 +114,17 @@
     "href": "02_aes_geom.html#geometries",
     "title": "2  Aesthetics and geometries",
     "section": "2.2 Geometries",
-    "text": "2.2 Geometries\nMost visual markings within ggplot are determined by a geom object. There are many options within the package that can be used and each requires different combinations of aes markings to work. For example, the scatterplot in ?fig-flipper-mass required x and y to be specified, but a bar chart or histogram would only require x as the y-axis is generated from the data.\n\n\n\n\n\n\nHint\n\n\n\nFor a full list of geometries included in ggplot2, visit the package’s cheatsheet\n\n\nMultiple geometries can be added to the same graph to add information to the plot. These can be used to add information to the graph, such as a reference value or a summary. For example, if we wished to show the difference in the distribution of body mass of penguin species, we could show every individual observation using a point and add a boxplot layer to show the differences in median and interquartile range.\n\n\n\n\n\n\nWarning\n\n\n\nEnsure that the outliers argument of geom_boxplot is set to FALSE to avoid duplicate points.\n\n\n\nggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n1  geom_jitter() +\n2  geom_boxplot(outliers = FALSE, alpha = 075)\n\n\n1\n\nJittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.\n\n2\n\nUse alpha to make the box semi-transparent so we can still see the points underneath.\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Comparison of body mass between penguin species\n\n\n\n\n\nOther useful layers may include geom_hline, geom_vline and geom_abline which add a manually defined horizontal, vertical, or diagonal line respectively. To generate a line of best fit from the data, we can use geom_smooth.\n\n\n\n\n\n\nHint\n\n\n\nBy default, geom_smooth generates a curved line. To change this, change the method argument to an appropriate method. For example, method = \"lm\" generates a straight line or check the helpfile ?geom_smooth for other options.",
+    "text": "2.2 Geometries\nMost visual markings within ggplot are determined by a geom object. There are many options within the package that can be used and each requires different combinations of aes markings to work. For example, the scatterplot in Figure 2.2 required x and y to be specified, but a bar chart or histogram would only require x as the y-axis is generated from the data.\n\n\n\n\n\n\nHint\n\n\n\nFor a full list of geometries included in ggplot2, visit the package’s cheatsheet\n\n\nMultiple geometries can be added to the same graph to add information to the plot. These can be used to add information to the graph, such as a reference value or a summary. For example, if we wished to show the difference in the distribution of body mass of penguin species, we could show every individual observation using a point and add a boxplot layer to show the differences in median and interquartile range.\n\n\n\n\n\n\nWarning\n\n\n\nEnsure that the outliers argument of geom_boxplot is set to FALSE to avoid duplicate points.\n\n\n\nggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n1  geom_jitter() +\n2  geom_boxplot(outliers = FALSE, alpha = 0.75)\n\n\n1\n\nJittering points adds a small amount of noise on the x-axis to spread points out, ensuring we can see each observation, even when they overlap.\n\n2\n\nUse alpha to make the box semi-transparent so we can still see the points underneath.\n\n\n\n\n\n\n\n\n\n\nFigure 2.4: Comparison of body mass between penguin species\n\n\n\n\n\nOther useful layers may include geom_hline, geom_vline and geom_abline which add a manually defined horizontal, vertical, or diagonal line respectively. To generate a line of best fit from the data, we can use geom_smooth.\n\n\n\n\n\n\nHint\n\n\n\nBy default, geom_smooth generates a curved line. To change this, change the method argument to an appropriate method. For example, method = \"lm\" generates a straight line or check the helpfile ?geom_smooth for other options.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
+    ]
+  },
+  {
+    "objectID": "02_aes_geom.html#exporting-visualisations",
+    "href": "02_aes_geom.html#exporting-visualisations",
+    "title": "2  Aesthetics and geometries",
+    "section": "2.3 Exporting visualisations",
+    "text": "2.3 Exporting visualisations\nVisualisations created in RStudio can be exported manually from the RStudio interface by clicking the  button. This allows visualisations to be copied and pasted into documents (using the Copy to clipboard option) or saved as an image (for example, .png or .jpg) or PDF. Visualisations can also be stored as objects using the &lt;- symbol. These objects can then be saved using the ggsave function:\n\nspecies_mass_plot &lt;- ggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n  geom_jitter() + \n  geom_boxplot(alpha = .75) \n\nggsave(species_mass_plot, filename = \"output/species_mass_plot.png\")\n\nThe ggsave function can be customised to change the file type, height, width and resolution (using the dpi argument).\n\n\n\n\n\n\nHint\n\n\n\nggsave is compatible with a range of file types, including png, jpg, pdf and svg. Saving these visualisations in a vectorised format, such as svg allows graph elements to be edited outside of R. For example, after pasting an exported svg file into Microsoft Word, ungroup the image. This allows customisation of axes text, legends, background colours, etc.\nExternal editing is not recommended as output would no longer be reproducible via R.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
     ]
@@ -170,17 +137,6 @@
     "text": "Exercise 1\n\nLoad the CSP_2020.csv file into R and save it as an object named csp_2020. Ensure that all variables are correctly specified by type. For more information about this dataset, including the source and variable descriptions, check the appendix.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nTo read a csv file in, use the read_csv function. Consider storing the raw data in its own folder.\nAll variables should be categorised as numberic (or dbl in tidyverse), apart from the authority variable (which should be character) and the region variable (which should be factor). Use the mutate and factor functions to fix this.\n\n\n\n\nThe following code was intended to produce a scatterplot showing the relationship between the sfa_2020 and ct_total_2020 variables with the points in blue. Debug the code to fix the problem:\n\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = \"blue\"))\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nCheck which aesthetic elements are defined by the data and which are defined manually. Consider which of these need to be in the aes wrapper.\n\n\n\n\nAdd a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nUse the geom_smooth function and check the method argument.\nTo figure out what this shaded area is, check the helpfile ?geom_smooth, specifically the arguments se and level.\n\n\n\n\nUse an appropriate visualisation to check the distribution of the sfa_2020 variable. Interpret this visualisation.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nHistograms are used to check the distribution of numeric variables, and are generated using geom_histogram.\nBased on this visualisation, do you think the data are normally distributed? Are there any outliers or potential errors? Use the filter function to investigate outliers.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
-    ]
-  },
-  {
-    "objectID": "exercise_solutions.html#exercise-1",
-    "href": "exercise_solutions.html#exercise-1",
-    "title": "Appendix A — Exercise solutions",
-    "section": "",
-    "text": "Question 1\nLoad the CSP_2020.csv file into R and save it as an object named csp_2020. Ensure that all variables are correctly specified by type.\n\n\nSolution\nTo load in a csv file, we use the read_csv function and save the data as an object:\n\ncsp_2020 &lt;- read_csv(\"data/CSP_2020.csv\")\n\n\n\n\n\n\nStyle tip\n\n\nObject names should only contain lower case letters, numbers and underscores _. Ensure names are clear and concise. Names must begin with a letter.\n\n\nNext, we must ensure the data has been read correctly. This includes checking the variables and observations have been organised correctly, checking the names of variables are appropriate, and checking the type of variables are correctly specified:\n\n1View(csp_2020)\n\n2str(csp_2020)\n\n\n1\n\nView produces a preview of the dataset that appears as a tab by the script files.\n\n2\n\nstr returns information about the structure of an object, including its type, and for data frames, the variable names and types.\n\n\n\n\nspc_tbl_ [315 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ ons_code        : chr [1:315] \"E07000223\" \"E07000026\" \"E07000032\" \"E07000224\" ...\n $ authority       : chr [1:315] \"Adur\" \"Allerdale\" \"Amber Valley\" \"Arun\" ...\n $ region          : chr [1:315] \"SE\" \"NW\" \"EM\" \"SE\" ...\n $ sfa_2020        : num [1:315] 1.77 3.85 3.23 3.67 4.08 ...\n $ under_index_2020: num [1:315] 0.0708 0.1465 0.1292 0.147 0.1557 ...\n $ ct_total_2020   : num [1:315] 6.53 5.4 6.85 11.61 6.42 ...\n $ nhb_2020        : num [1:315] 0.0881 0.6061 1.5786 2.2949 1.1547 ...\n $ rsdg_2020       : num [1:315] 0 0.326 0 0 0 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   ons_code = col_character(),\n  ..   authority = col_character(),\n  ..   region = col_character(),\n  ..   sfa_2020 = col_double(),\n  ..   under_index_2020 = col_double(),\n  ..   ct_total_2020 = col_double(),\n  ..   nhb_2020 = col_double(),\n  ..   rsdg_2020 = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nAll variables appear to be correctly specified besides the region variable which is a grouped category, or factor in R. To ensure this is correctly specified, we should convert this variable. It is possible to assign order to factor variables. Without assigning an order, all outputs including visualisations, will show regions in alphabetical order. Here, we may with to set London as the control region, followed by regions ordered from north to south:\n\ncsp_2020 &lt;- csp_2020 %&gt;% \n  mutate(region_fct = factor(region, \n                             levels = c(\"L\", \"NW\", \"NE\", \"YH\", \"WM\", \n                                        \"EM\", \"EE\", \"SW\", \"SE\")))\n\n\n\nQuestion 2\nThe following code was intended to produce a scatterplot showing the relationship between the sfa_2020 and ct_total_2020 variables with the points in blue. Debug the code to fix the problem:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = \"blue\"))\n\n\n\n\n\n\n\n\n\n\nSolution\nAs the colour is specified manually, rather than by a variable in the data, it must be placed outside the aes wrapper:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020), colour = \"blue\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nAesthetic markings (defined in the aes wrapper) can be included in the ggplot function if they are constant for each layer, or separately within each geom function.\n\n\n\n\nQuestion 3\nAdd a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?\n\n\nSolution\nLines of best fit can be added using the geom_smooth function. Be sure to set method = \"lm\" to fit a straight line:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe shaded area around the line represents the 95% confidence interval (see the se argument of the helpfile ?geom_smooth). This can be removed by changing the default setting of this argument:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\nQuestion 4\nUse an appropriate visualisation to check the distribution of the sfa_2020 variable. Interpret this visualisation.\n\n\nSolution\nHistograms are used to investigate the distribution of numeric variables:\n\nggplot(data = csp_2020) +\n1  geom_histogram(aes(x = sfa_2020),\n2                 colour = \"black\", fill = \"grey45\")\n\n\n1\n\ngeom_histogram only requires x to be specified as the y-axis is a count.\n\n2\n\nOptional customisation to make the plot nicer to look at!\n\n\n\n\n\n\n\n\n\n\n\nThe sfa_2020 variable is not normally distributed, it is positively skewed (also known as right-skewed and upwardly skewed). The majority of local authorities had relatively low values. There is one very high outlier, with an SFA of almost £500 million. We can learn more about this observation by extracting it from the data:\n\nfilter(csp_2020, sfa_2020 &gt; 400)\n\n# A tibble: 1 × 9\n  ons_code  authority  region sfa_2020 under_index_2020 ct_total_2020 nhb_2020\n  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;\n1 E08000025 Birmingham WM         470.             14.4          366.     7.24\n# ℹ 2 more variables: rsdg_2020 &lt;dbl&gt;, region_fct &lt;fct&gt;\n\n\nThe outlying value is Birmingham. This is a large city in England and one of the most highly populated local authorities in Europe! As this local authority contains such a high population, it makes sense that it would receive more funding than smaller local authorities. Therefore, this outlier is not an error and should not be removed from analysis, although we should make a note of it as it may skew results.",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
     ]
   },
   {
@@ -204,16 +160,6 @@
     ]
   },
   {
-    "objectID": "02_aes_geom.html#exporting-visualisations",
-    "href": "02_aes_geom.html#exporting-visualisations",
-    "title": "2  Aesthetics and geometries",
-    "section": "2.3 Exporting visualisations",
-    "text": "2.3 Exporting visualisations\nVisualisations created in RStudio can be exported manually from the RStudio interface by clicking the  button. This allows visualisations to be copied and pasted into documents (using the Copy to clipboard option) or saved as an image (for example, .png or .jpg) or PDF. Visualisations can also be stored as objects using the &lt;- symbol. These objects can then be saved using the ggsave function:\n\nspecies_mass_plot &lt;- ggplot(data = penguins, \n       aes(x = species, y = body_mass_g)) +\n  geom_jitter() + \n  geom_boxplot(alpha = .75) \n\nggsave(species_mass_plot, filename = \"output/species_mass_plot.png\")\n\nThe ggsave function can be customised to change the file type, height, width and resolution (using the dpi argument).\n\n\n\n\n\n\nHint\n\n\n\nggsave is compatible with a range of file types, including png, jpg, pdf and svg. Saving these visualisations in a vectorised format, such as svg allows graph elements to be edited outside of R. For example, after pasting an exported svg file into Microsoft Word, ungroup the image. This allows customisation of axes text, legends, background colours, etc.\nExternal editing is not recommended as output would no longer be reproducible via R.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Aesthetics and geometries</span>"
-    ]
-  },
-  {
     "objectID": "03_scales.html#customising-colour-scales",
     "href": "03_scales.html#customising-colour-scales",
     "title": "3  Scale functions",
@@ -224,14 +170,13 @@
     ]
   },
   {
-    "objectID": "exercise_solutions.html#exercise-2",
-    "href": "exercise_solutions.html#exercise-2",
-    "title": "Appendix A — Exercise solutions",
-    "section": "A.2 Exercise 2",
-    "text": "A.2 Exercise 2\n\nA.2.1 Question 1\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\nSolution\nThe current data set does not contain a the total core spending power. To create this, we can use the mutate function.\n\n\n\n\n\n\nHint\n\n\n\nTo avoid typing each of the variable names out, use the names(csp_2020) function to return them in the console, then copy and paste them.\n\n\n\ncsp_2020 &lt;- mutate(csp_2020,\n                   total_spend = sfa_2020 + under_index_2020 + \n                   ct_total_2020 + nhb_2020 + rsdg_2020)\n\nA dot plot or boxplot would be appropriate to compare the total CSP between regions. To show as much information as possible, we can include both on the same graph:\n\nggplot(data = csp_2020, \n       aes(x = region_fct, y = total_spend)) +\n  geom_jitter() +\n  geom_boxplot(alpha = .75, outliers = FALSE)\n\n\n\n\n\n\n\n\nTo highlight the London region, we can add a variable to the data that takes the value 1 for London, and 0 otherwise. This can then be included in the visualisation within the aes wrapper.\n\n\n\n\n\n\nHint\n\n\n\nWhere a variable is created just for a visualisation, this can be carried out in a single process using pipes %&gt;%. The data argument is no longer required as it is specified using the pipe.\n\n\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75)\n\n\n\n\n\n\n\n\n\n\nA.2.2 Question 2\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\nSolutions\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75) +\n  scale_x_discrete(name = \"Region\") +\n  scale_y_continuous(name = \"Core spending power (£ millions)\",\n                     breaks = seq(0, 600, by = 100)) +\n  scale_colour_manual(name = \"\", values = c(\"black\", \"hotpink\"))",
+    "objectID": "03_scales.html#exercise-2",
+    "href": "03_scales.html#exercise-2",
+    "title": "3  Scale functions",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nIf the total spend is not in the current dataset, create it! Also consider how colour could be included in the aes wrapper, and if this does not currently exist in the data, create it!\nYou will need the mutate and if_else functions.\n\n\n\n\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nbreaks can either be manually specified or a function can be used to generate the list (check the seq function).",
     "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
     ]
   },
   {
@@ -265,56 +210,13 @@
     ]
   },
   {
-    "objectID": "03_scales.html#exercise-2",
-    "href": "03_scales.html#exercise-2",
-    "title": "3  Scale functions",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nIf the total spend is not in the current dataset, create it! Also consider how colour could be included in the aes wrapper, and if this does not currently exist in the data, create it!\nYou will need the mutate and if_else functions.\n\n\n\n\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nbreaks can either be manually specified or a function can be used to generate the list (check the seq function).",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Scale functions</span>"
-    ]
-  },
-  {
-    "objectID": "exercise_solutions.html#exercise-3",
-    "href": "exercise_solutions.html#exercise-3",
-    "title": "Appendix A — Exercise solutions",
-    "section": "A.3 Exercise 3",
-    "text": "A.3 Exercise 3\n\nA.3.1 Question 1\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\nSolution\nA scatterplot is the most appropriate method of investigating the relationship between continuous variables. Include region as a colour. Add lines of best fit to make these relationships clearer. Add a labs layer to add appropriate titles. Add an annotation to explain the outlier (Birmingham).\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020, colour = region_fct)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\",\n       colour = \"Region\") +\n  annotate(\"text\", x = 300, y = 350,\n           label = \"Birmingham, the largest \\nlocal authority in Europe.\") + \n  annotate(\"curve\", x = 300, y = 310, xend = 460, yend = 360, \n           arrow = arrow(length = unit(.25, \"cm\")))",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
-    ]
-  },
-  {
     "objectID": "04_annotation.html#exercise-3",
     "href": "04_annotation.html#exercise-3",
     "title": "4  Annotations and titles",
     "section": "Exercise 3",
-    "text": "Exercise 3\n\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nInclude region in the aes wrapper. Consider adding a line of best fit per region to make these relationships clearer.\nThis dataset has a clear outlier. Highlight this for readers.\nYour ggplot should contain annotate and labs layers.\n\n\n\n\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nAdd an extra geom_point layer to highlight the North West region.\nUse annotate layers to define the highlighted point meaning in the graph area. If you are really stuck, check (this ebook)[https://ggplot2-book.org/annotations#sec-text-labels] for inspiration.",
+    "text": "Exercise 3\n\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nInclude region in the aes wrapper. Consider adding a line of best fit per region to make these relationships clearer.\nThis dataset has a clear outlier. Highlight this for readers.\nYour ggplot should contain annotate and labs layers.\n\n\n\n\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nAdd an extra geom_point layer to highlight the North West region.\nUse annotate layers to define the highlighted point meaning in the graph area. If you are really stuck, check this ebook for inspiration.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Annotations and titles</span>"
-    ]
-  },
-  {
-    "objectID": "exercise_solutions.html#question-2-2",
-    "href": "exercise_solutions.html#question-2-2",
-    "title": "Appendix A — Exercise solutions",
-    "section": "A.4 Question 2",
-    "text": "A.4 Question 2\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
-    ]
-  },
-  {
-    "objectID": "exercise_solutions.html#solution-6",
-    "href": "exercise_solutions.html#solution-6",
-    "title": "Appendix A — Exercise solutions",
-    "section": "Solution",
-    "text": "Solution\nPoints in the North West can be highlighted by adding coloured points beneath these observations. An annotation can then be added to the graph area with a highlighted point and “North West” text label:\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(data = filter(csp_2020, region == \"NW\"),\n             size = 3, colour = \"springgreen\") +\n  geom_point() +\n    labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\") +\n  annotate(\"point\", x = 300, y = 100, size = 3, colour = \"springgreen\") +\n  annotate(\"point\", x = 300, y = 100) +\n  annotate(\"text\", x = 350, y = 100, label = \"North West\",\n           size = 5)",
-    "crumbs": [
-      "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
     ]
   },
   {
@@ -362,9 +264,149 @@
     "href": "06_facet.html",
     "title": "6  Faceting",
     "section": "",
-    "text": "Faceting allows us to divide a plot into subplots based on some grouping variable within the data. This allows us to show multiple variables in the same visualisation without risking overloading the plot and losing the intended message.\nThere are two approaches to faceting within ggplot2:\n\nfacet_wrap separates observations into separate graphs based on a single variable. This variable is entered into the function with a vars wrapper, the number of rows or columns are specified using the nrow and ncol arguments.\nfacet_grid produces a 2d grid of panels, where the rows and columns are defined by variables. Variables are included separated by ~ (facet_grid(rows ~ cols)).",
+    "text": "6.1 Customising facets",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Faceting</span>"
+    ]
+  },
+  {
+    "objectID": "06_facet.html#customising-facets",
+    "href": "06_facet.html#customising-facets",
+    "title": "6  Faceting",
+    "section": "",
+    "text": "6.1.1 Dealing with missing data\nAs we can see from Figure 6.1, facet functions will treat missing values as a value and produce a facet for these observations. If we do not want to show these missing values, they would need to be removed from the data used to produce the plot:\n\npenguins %&gt;% \n1  filter(!is.na(sex)) %&gt;%\n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  facet_wrap(vars(sex)) +\n  theme_light(base_size = 16) +\n2  theme(axis.text.x = element_text(angle = 45))\n\n\n1\n\nRemove observations missing the sex variable.\n\n2\n\nRotate the x-axis labels to make them easier to read.\n\n\n\n\n\n\n\n\n\n\nFigure 6.2: Scatterplot showing the relationship between body mass, flipper length and species of penguins in Antarctica, facetted by sex (with missing data removed).\n\n\n\n\n\n\n\n6.1.2 Scales\nOne of the benefits of using facets when producing multiple graphs to make comparisons is that they are shown on equivalent scales by default. However, if this is not appropriate, this default can be changed using the scales argument. Scales can either be \"fixed\" (the default) or \"free\", either across both axes or by a single dimension (\"free_x\" or \"free_y\").\n\n\n\n\n\nStyle tip\n\n\nWhere facets are used to make comparisons across panels, scales should be set to fixed. If not, the differences in scales may not be immediately obvious to readers which could be misleading where like-for-like comparisons are not appropriate. These scales should only be set as free where panels show different outcomes (e.g. multiple time series across different variables).\n\n\n\n\n6.1.3 Facet appearances\nThe appearance of facets, such as the colour of the labels and panels, can be customised within the theme function. Elements related to facets tend to begin strip., for example strip.background changes the background colour, and strip.placement chooses whether facet labels should be added inside or outside the chart area:\n\npenguins %&gt;% \n  filter(!is.na(sex)) %&gt;%  \n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, \n           colour = species)) +\n  geom_point() +\n  scale_colour_brewer(palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\",\n       colour = \"Species\") +\n  facet_wrap(vars(sex)) +\n  theme_light(base_size = 16) +\n  theme(axis.text.x = element_text(angle = 45),\n        strip.background = element_rect(fill = \"thistle\"),\n        strip.text = element_text(face = \"bold\", colour = \"navy\")) \n\n\n\n\n\n\n\nFigure 6.3: Scatterplot showing the relationship between body mass, flipper length and species of penguins in Antarctica, facetted by sex (with missing data removed).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Faceting</span>"
+    ]
+  },
+  {
+    "objectID": "06_facet.html#other-options-for-multiple-plots",
+    "href": "06_facet.html#other-options-for-multiple-plots",
+    "title": "6  Faceting",
+    "section": "6.2 Other options for multiple plots",
+    "text": "6.2 Other options for multiple plots\nThere are various packages that allow multiple ggplot2 objects to be shown on the same output. One of the most popular is the patchwork package. This is particularly useful where multiple points are necessary for investigating or communicating an aspect of the data that would overload a single plot.\nFor example, it we wanted to investigate the relationships between body mass, flipper length, species and bill length of the Palmer penguins, we would struggle to show this on a single plot. However, combining a scatterplot to investigate the relationship between body mass and flipper length, a box plot to compare the average bill length across species, and a histogram to show the different distribution of body mass across species, would give a clear message of these relationships.\nWe first have to create an object for each plot we would like to display:\n\np1 &lt;- ggplot(penguins) +\n  geom_point(aes(x = flipper_length_mm, y = body_mass_g, \n                 colour = species)) +\n  scale_colour_brewer(name = \"Species\", palette = \"Dark2\") +\n  labs(x = \"Flipper length (mm)\", y = \"Body mass (g)\") +\n  theme_light(base_size = 16)\n\np2 &lt;- ggplot(penguins) +\n  geom_boxplot(aes(x = species, y = bill_length_mm, fill = species)) +\n  scale_fill_brewer(name = \"Species\", palette = \"Dark2\") +\n  labs(x = \"Species\", y = \"Bill length (mm)\") +\n  theme_light(base_size = 16) +\n  theme(legend.position = \"none\")\n\np3 &lt;- ggplot(penguins) +\n  geom_histogram(aes(x  = body_mass_g, fill = species),\n                 colour = \"black\", alpha = .75) +\n  scale_fill_brewer(name = \"Species\", palette = \"Dark2\") +\n  labs(x = \"Count\", x = \"Body mass (g)\") +\n  theme_light(base_size = 16) +\n  theme(legend.position = \"none\")\n\nUsing the patchwork package, ggplot objects can be displayed next to one another using the + symbol, and can be stacked on top of one another using the / symbol. These plots can be nested together by surrounding them by brackets. For example, if we wished to show the scatterplot on the first row, with the boxplot and histograms next to one another on the bottom, we would use the following code:\n\n\n\n\n\n\nWarning\n\n\n\nIf you have never used the patchwork package, install it to your machine from CRAN using the following:\ninstall.packages(\"patchwork\")\nIf you have installed patchwork, ensure it is loaded into this section by adding the library(patchwork) command into your script.\n\n\n\np1 / (p2 + p3)\n\n\n\n\n\n\n\nFigure 6.4: Plots investigating the relationship between penguins species and body mass, flipper length, and bill length\n\n\n\n\n\nIn this example, we removed the legend from the bottom two plots to avoid duplication. However patchwork contains options that control the layout of outputs, including ‘collecting’ and condensing these into a single legend (ssee the patchwork webpage for more details).",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Faceting</span>"
+    ]
+  },
+  {
+    "objectID": "06_facet.html#exercise-4",
+    "href": "06_facet.html#exercise-4",
+    "title": "6  Faceting",
+    "section": "6.3 Exercise 4",
+    "text": "6.3 Exercise 4\nThe csp_201520.csv data file contains information about core spending power in English local authorities between 2015 and 2020 (for more information about these variables, see the data description appendix). Using this information, generate a plot that investigates the change in spending power over this period, and whether this is different between regions of England. Adapt your visualisation to ensure that it is informative, compelling and accessible. This can include:\n\nAdding an appropriate title and caption with data source information\nEnsuring all colours and text are legible and inclusive\nAdding labels to commmunicate important findings to the reader\nAdjusting the theme to ensure text is large enough, values are clear but not overwhelmed by ‘chart junk’\n\n\n\n\n\n\n\nExercise hint\n\n\n\n\n\nThere are a lot of options that we could use to display this information. Temporal data are often displayed using line graphs or, if we wished to show the decomposition of spending power by the different variables, a stacked area plot may be of interest.\nThis data does not contain the overall total spend per local authority so if this is something you would like to display, you would need to create this variable using the mutate function.\nDifferences between regions could be added to a visualisation by using a different colour or by using facets if these differences are not clear on a single graph.\nCheck that any colours are distinct, even to those with different forms of colour blindness. Ensure that text is clear and large enough. If there are multiple messages you would like to display, consider using patchwork to arrange multiple graphs on a single output.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Faceting</span>"
+    ]
+  },
+  {
+    "objectID": "data_description.html",
+    "href": "data_description.html",
+    "title": "Data description",
+    "section": "",
+    "text": "What is ‘CSP’?\nThe data we will be using throughout this course relates to the Core Spending Power (CSP) of English local authorities. This is a measure of the resources available to local authorities in England to fund service delivery. The CSP is broken down into several components, presented as variables in the data. These components include:\nSpending power is given in millions of pounds (£). The data were provided by the UK government’s Department for Levelling Up, Housing and Communities. Full guidance on the data can be found on the Department’s website. A brief description of the variables included in the data are given below.",
+    "crumbs": [
+      "Appendices",
+      "Data description"
+    ]
+  },
+  {
+    "objectID": "data_description.html#what-is-csp",
+    "href": "data_description.html#what-is-csp",
+    "title": "Data description",
+    "section": "",
+    "text": "Settlement Funding Assessment (sfa)\nCompensation for under-indexing the business rates multipler (under_index)\nIncome from council tax (ct_total)\nNew Homes Bonus (nhb)\nRural Services Delivery Grant (rsdg)",
+    "crumbs": [
+      "Appendices",
+      "Data description"
+    ]
+  },
+  {
+    "objectID": "data_description.html#descriptions-of-variables",
+    "href": "data_description.html#descriptions-of-variables",
+    "title": "Data description",
+    "section": "Descriptions of variables",
+    "text": "Descriptions of variables\n\nIdentifier variables\nEach dataset contains a unique identifier code variable, ons_code. This is a code given by the Government’s Office for National Statistics (ONS), and is used to join different datasets. There is also an authority variable which contains the local authority name (to see where each local authority lies on a map, you can visit the Government’s geoportal website).\n\n\nRegions of England\nIn addition to each local authority’s unique code and name, we are given the region that they lie within. England is separated into 9 regions (shown on this map) which are given as acronyms in the data. These are:\n\nL = London\nNW = North West\nNE = North East\nYH = Yorkshire and the Humber\nWM = West Midlands\nEM = East Midlands\nEE = East England\nSW = South West\nSE = South East\n\n\n\nSettlement Funding Assessment (SFA)\nThe Settlement Funding Assessment (sfa in the data) is the baseline funding level of local authorities, and includes the Revenue Support Grant (a central government grant given to local authorities).\n\n\nUnder-indexing business rate multipliers\nThe under_index variable is given to compensate local authorities that under-indexed business rate multipliers in previous years (i.e. those that used a measure of inflation that was lower than that should have been used).\n\n\nCouncil tax\nCouncil tax (ct_total) is the income made by each local authority from council tax. In England, the amount of council tax charged to residents is set by each local authority to make up additional revenue needed to cover planned spending.\n\n\nNew Homes Bonus\nThe nhb variables is the funding received as part of the New Homes Bonus, a government inncentive to encourage local authorities to promote new housing delevopment.\n\n\nRural Services Delivery Grant\nThe rsdg variable is funding received as part of the Rural Services Delivery Grant, provided to rural councils to recognise additional costs in these areas.",
+    "crumbs": [
+      "Appendices",
+      "Data description"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Further reading",
+    "section": "",
+    "text": "One of the benefits of using ggplot2 to produce outputs is the huge range of free resources available online. Below is a list of online resources that I would recommend that help continue your ggplot2 learning journey or provide guidance on data visualisation in general.\n\nggplot2: Elegant Graphics for Data Analysis\nDesign principles for data visualisation\nRSS’s Best Practices for Data Visualisation\nFrom Data to Viz\nFundamentals of Data Visualization\nThe R-graph gallery\nR colour palette finder\nggplot2 extensions",
+    "crumbs": [
+      "Appendices",
+      "Further reading"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html",
+    "href": "exercise_solutions.html",
+    "title": "Appendix A — Exercise solutions",
+    "section": "",
+    "text": "A.1 Exercise 1",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-1",
+    "href": "exercise_solutions.html#exercise-1",
+    "title": "Appendix A — Exercise solutions",
+    "section": "",
+    "text": "Question 1\nLoad the CSP_2020.csv file into R and save it as an object named csp_2020. Ensure that all variables are correctly specified by type.\n\n\nSolution\nTo load in a csv file, we use the read_csv function and save the data as an object:\n\ncsp_2020 &lt;- read_csv(\"data/CSP_2020.csv\")\n\n\n\n\n\n\nStyle tip\n\n\nObject names should only contain lower case letters, numbers and underscores _. Ensure names are clear and concise. Names must begin with a letter.\n\n\nNext, we must ensure the data has been read correctly. This includes checking the variables and observations have been organised correctly, checking the names of variables are appropriate, and checking the type of variables are correctly specified:\n\n1View(csp_2020)\n\n2str(csp_2020)\n\n\n1\n\nView produces a preview of the dataset that appears as a tab by the script files.\n\n2\n\nstr returns information about the structure of an object, including its type, and for data frames, the variable names and types.\n\n\n\n\nspc_tbl_ [315 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ ons_code        : chr [1:315] \"E07000223\" \"E07000026\" \"E07000032\" \"E07000224\" ...\n $ authority       : chr [1:315] \"Adur\" \"Allerdale\" \"Amber Valley\" \"Arun\" ...\n $ region          : chr [1:315] \"SE\" \"NW\" \"EM\" \"SE\" ...\n $ sfa_2020        : num [1:315] 1.77 3.85 3.23 3.67 4.08 ...\n $ under_index_2020: num [1:315] 0.0708 0.1465 0.1292 0.147 0.1557 ...\n $ ct_total_2020   : num [1:315] 6.53 5.4 6.85 11.61 6.42 ...\n $ nhb_2020        : num [1:315] 0.0881 0.6061 1.5786 2.2949 1.1547 ...\n $ rsdg_2020       : num [1:315] 0 0.326 0 0 0 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   ons_code = col_character(),\n  ..   authority = col_character(),\n  ..   region = col_character(),\n  ..   sfa_2020 = col_double(),\n  ..   under_index_2020 = col_double(),\n  ..   ct_total_2020 = col_double(),\n  ..   nhb_2020 = col_double(),\n  ..   rsdg_2020 = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nAll variables appear to be correctly specified besides the region variable which is a grouped category, or factor in R. To ensure this is correctly specified, we should convert this variable. It is possible to assign order to factor variables. Without assigning an order, all outputs including visualisations, will show regions in alphabetical order. Here, we may with to set London as the control region, followed by regions ordered from north to south:\n\ncsp_2020 &lt;- csp_2020 %&gt;% \n  mutate(region_fct = factor(region, \n                             levels = c(\"L\", \"NW\", \"NE\", \"YH\", \"WM\", \n                                        \"EM\", \"EE\", \"SW\", \"SE\")))\n\n\n\nQuestion 2\nThe following code was intended to produce a scatterplot showing the relationship between the sfa_2020 and ct_total_2020 variables with the points in blue. Debug the code to fix the problem:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020, colour = \"blue\"))\n\n\n\n\n\n\n\n\n\n\nSolution\nAs the colour is specified manually, rather than by a variable in the data, it must be placed outside the aes wrapper:\n\nggplot(data = csp_2020) +\n  geom_point(aes(x = sfa_2020, y = ct_total_2020), colour = \"blue\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nAesthetic markings (defined in the aes wrapper) can be included in the ggplot function if they are constant for each layer, or separately within each geom function.\n\n\n\n\nQuestion 3\nAdd a straight line of best fit to the scatterplot and interpret the result. What is the shaded area surrounding the line and how can we remove it?\n\n\nSolution\nLines of best fit can be added using the geom_smooth function. Be sure to set method = \"lm\" to fit a straight line:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe shaded area around the line represents the 95% confidence interval (see the se argument of the helpfile ?geom_smooth). This can be removed by changing the default setting of this argument:\n\nggplot(data = csp_2020, aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(colour = \"blue\") +\n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\nQuestion 4\nUse an appropriate visualisation to check the distribution of the sfa_2020 variable. Interpret this visualisation.\n\n\nSolution\nHistograms are used to investigate the distribution of numeric variables:\n\nggplot(data = csp_2020) +\n1  geom_histogram(aes(x = sfa_2020),\n2                 colour = \"black\", fill = \"grey45\")\n\n\n1\n\ngeom_histogram only requires x to be specified as the y-axis is a count.\n\n2\n\nOptional customisation to make the plot nicer to look at!\n\n\n\n\n\n\n\n\n\n\n\nThe sfa_2020 variable is not normally distributed, it is positively skewed (also known as right-skewed and upwardly skewed). The majority of local authorities had relatively low values. There is one very high outlier, with an SFA of almost £500 million. We can learn more about this observation by extracting it from the data:\n\nfilter(csp_2020, sfa_2020 &gt; 400)\n\n# A tibble: 1 × 9\n  ons_code  authority  region sfa_2020 under_index_2020 ct_total_2020 nhb_2020\n  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;\n1 E08000025 Birmingham WM         470.             14.4          366.     7.24\n# ℹ 2 more variables: rsdg_2020 &lt;dbl&gt;, region_fct &lt;fct&gt;\n\n\nThe outlying value is Birmingham. This is a large city in England and one of the most highly populated local authorities in Europe! As this local authority contains such a high population, it makes sense that it would receive more funding than smaller local authorities. Therefore, this outlier is not an error and should not be removed from analysis, although we should make a note of it as it may skew results.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-2",
+    "href": "exercise_solutions.html#exercise-2",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.2 Exercise 2",
+    "text": "A.2 Exercise 2\n\nA.2.1 Question 1\nUse an appropriate visualisation to compare the total core spending power in local authorities 2020 across regions of England. Highlight the London region in a different colour to the other regions to make it stand out more.\n\n\nSolution\nThe current data set does not contain a the total core spending power. To create this, we can use the mutate function.\n\n\n\n\n\n\nHint\n\n\n\nTo avoid typing each of the variable names out, use the names(csp_2020) function to return them in the console, then copy and paste them.\n\n\n\ncsp_2020 &lt;- mutate(csp_2020,\n                   total_spend = sfa_2020 + under_index_2020 + \n                   ct_total_2020 + nhb_2020 + rsdg_2020)\n\nA dot plot or boxplot would be appropriate to compare the total CSP between regions. To show as much information as possible, we can include both on the same graph:\n\nggplot(data = csp_2020, \n       aes(x = region_fct, y = total_spend)) +\n  geom_jitter() +\n  geom_boxplot(alpha = .75, outliers = FALSE)\n\n\n\n\n\n\n\n\nTo highlight the London region, we can add a variable to the data that takes the value 1 for London, and 0 otherwise. This can then be included in the visualisation within the aes wrapper.\n\n\n\n\n\n\nHint\n\n\n\nWhere a variable is created just for a visualisation, this can be carried out in a single process using pipes %&gt;%. The data argument is no longer required as it is specified using the pipe.\n\n\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75)\n\n\n\n\n\n\n\n\n\n\nA.2.2 Question 2\nCustomise the graph above to ensure the axes are labelled appropriately. Add axis breaks every £100million on the y-axis.\n\n\nSolutions\n\nmutate(csp_2020, \n       london = factor(if_else(region == \"L\", 1, 0))) %&gt;% \nggplot(aes(x = region_fct, y = total_spend, colour = london)) +\n  geom_jitter() +\n  geom_boxplot(outliers = FALSE, alpha = .75) +\n  scale_x_discrete(name = \"Region\") +\n  scale_y_continuous(name = \"Core spending power (£ millions)\",\n                     breaks = seq(0, 600, by = 100)) +\n  scale_colour_manual(name = \"\", values = c(\"black\", \"hotpink\"))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#exercise-3",
+    "href": "exercise_solutions.html#exercise-3",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.3 Exercise 3",
+    "text": "A.3 Exercise 3\n\nA.3.1 Question 1\nUsing the csp_2020 dataset, investigate the relationship between sfa_2020 and ct_total_2020, and show whether that differs between regions. Ensure that this visualisation:\n\nHas appropriate axes, legend and plot titles\nHas annotations that explain interesting points and make these relationships clearer to a reader\n\n\n\nSolution\nA scatterplot is the most appropriate method of investigating the relationship between continuous variables. Include region as a colour. Add lines of best fit to make these relationships clearer. Add a labs layer to add appropriate titles. Add an annotation to explain the outlier (Birmingham).\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020, colour = region_fct)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\",\n       colour = \"Region\") +\n  annotate(\"text\", x = 300, y = 350,\n           label = \"Birmingham, the largest \\nlocal authority in Europe.\") + \n  annotate(\"curve\", x = 300, y = 310, xend = 460, yend = 360, \n           arrow = arrow(length = unit(.25, \"cm\")))",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#question-2-2",
+    "href": "exercise_solutions.html#question-2-2",
+    "title": "Appendix A — Exercise solutions",
+    "section": "A.4 Question 2",
+    "text": "A.4 Question 2\nGenerate an alternative visualisation that investigates the relationship between sfa_2020 and ct_total_2020, adding an annotation to highlight just the North West region (region == \"NW\"). Add a label to the graph area that makes it clear what the highlighted points represent (rather than a legend).",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
+    ]
+  },
+  {
+    "objectID": "exercise_solutions.html#solution-6",
+    "href": "exercise_solutions.html#solution-6",
+    "title": "Appendix A — Exercise solutions",
+    "section": "Solution",
+    "text": "Solution\nPoints in the North West can be highlighted by adding coloured points beneath these observations. An annotation can then be added to the graph area with a highlighted point and “North West” text label:\n\nggplot(data = csp_2020, \n       aes(x = sfa_2020, y = ct_total_2020)) +\n  geom_point(data = filter(csp_2020, region == \"NW\"),\n             size = 3, colour = \"springgreen\") +\n  geom_point() +\n    labs(title = \"Core spending power in English local authorities, 2020.\",\n       x = \"Settlement funding assessment (£ millions)\", \n       y = \"Council tax total (£ millions)\") +\n  annotate(\"point\", x = 300, y = 100, size = 3, colour = \"springgreen\") +\n  annotate(\"point\", x = 300, y = 100) +\n  annotate(\"text\", x = 350, y = 100, label = \"North West\",\n           size = 5)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Exercise solutions</span>"
     ]
   }
 ]

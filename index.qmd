@@ -63,7 +63,7 @@ All exercise solutions are available in the [appendices](exercise_solutions.qmd)
 
 Some exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:
 
-:::{callout-caution collapse="true}
+:::{callout-caution collapse="true"}
 ## Exercise hint
 
 The functions you will need for this exercise are `filter` and `count`. 
@@ -72,12 +72,12 @@ The functions you will need for this exercise are `filter` and `count`.
 ## Data used in the course
 The examples and exercises in these materials are based on real world data....
 
-Data for this course can be downloaded from the `data` folder of this course's [repository](https://github.com/sophie-a-lee).
+Data for this course can be downloaded from the `data` folder of this course's [repository](https://github.com/sophie-a-lee/dataviz-course/data).
 
 For more information about this data, including variable descriptions and sources, see [the appendix](data_description.qmd).
 
 ## Feedback and issues
-This book is a work in progress and will be updated based on course feedback and requirements of participants. If you spot a bug or mistake in these notes, please let me know by [raising an issue](https://github.com/sophie-a-lee/Introduction_R_Tidyverse_course/issues).
+This book is a work in progress and will be updated based on course feedback and requirements of participants. If you spot a bug or mistake in these notes, please let me know by [raising an issue](https://github.com/sophie-a-lee/dataviz-course/issues).
 
 If you enjoyed using these resources and would like to find more of them or attend a live course, please visit [my website](https://scubed.rbind.io/), follow me on [Twitter](https://x.com/SophieStats10) and [LinkedIn](https://www.linkedin.com/in/sophie-a-lee/), or support more free resources by [buying me a coffee!](https://buymeacoffee.com/sophie_a_lee).
 

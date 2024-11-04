@@ -1,0 +1,13 @@
+# Further reading {.unnumbered}
+
+One of the benefits of using `ggplot2` to produce outputs is the huge range of free resources available online. Below is a list of online resources that I would recommend that help continue your `ggplot2` learning journey or provide guidance on data visualisation in general.
+
+- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+- [Design principles for data visualisation](https://www.ncrm.ac.uk/resources/online/all/?id=20844)
+- [RSS's Best Practices for Data Visualisation](https://royal-statistical-society.github.io/datavisguide/)
+- [From Data to Viz](https://www.data-to-viz.com/)
+- [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
+- [The R-graph gallery](https://r-graph-gallery.com/)
+- [R colour palette finder](https://r-graph-gallery.com/color-palette-finder.html)
+- [ggplot2 extensions](https://exts.ggplot2.tidyverse.org/)
+

@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exercise_solutions.html" rel="next">
-<link href="./01_intro.html" rel="prev">
+<link href="./resources.html" rel="next">
+<link href="./06_facet.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -138,6 +138,36 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_aes_geom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aesthetics and geometries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scale functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Annotations and titles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_theme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Themes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_facet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Faceting</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -151,6 +181,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./data_description.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data description</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Further reading</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -171,8 +207,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#where-is-this-data-from" id="toc-where-is-this-data-from" class="nav-link active" data-scroll-target="#where-is-this-data-from">Where is this data from?</a></li>
-  <li><a href="#description-of-variables" id="toc-description-of-variables" class="nav-link" data-scroll-target="#description-of-variables">Description of variables</a></li>
+  <li><a href="#what-is-csp" id="toc-what-is-csp" class="nav-link active" data-scroll-target="#what-is-csp">What is ‘CSP’?</a></li>
+  <li><a href="#descriptions-of-variables" id="toc-descriptions-of-variables" class="nav-link" data-scroll-target="#descriptions-of-variables">Descriptions of variables</a>
+  <ul class="collapse">
+  <li><a href="#identifier-variables" id="toc-identifier-variables" class="nav-link" data-scroll-target="#identifier-variables">Identifier variables</a></li>
+  <li><a href="#regions-of-england" id="toc-regions-of-england" class="nav-link" data-scroll-target="#regions-of-england">Regions of England</a></li>
+  <li><a href="#settlement-funding-assessment-sfa" id="toc-settlement-funding-assessment-sfa" class="nav-link" data-scroll-target="#settlement-funding-assessment-sfa">Settlement Funding Assessment (SFA)</a></li>
+  <li><a href="#under-indexing-business-rate-multipliers" id="toc-under-indexing-business-rate-multipliers" class="nav-link" data-scroll-target="#under-indexing-business-rate-multipliers">Under-indexing business rate multipliers</a></li>
+  <li><a href="#council-tax" id="toc-council-tax" class="nav-link" data-scroll-target="#council-tax">Council tax</a></li>
+  <li><a href="#new-homes-bonus" id="toc-new-homes-bonus" class="nav-link" data-scroll-target="#new-homes-bonus">New Homes Bonus</a></li>
+  <li><a href="#rural-services-delivery-grant" id="toc-rural-services-delivery-grant" class="nav-link" data-scroll-target="#rural-services-delivery-grant">Rural Services Delivery Grant</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -198,13 +243,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="where-is-this-data-from" class="level2">
-<h2 class="anchored" data-anchor-id="where-is-this-data-from">Where is this data from?</h2>
+<section id="what-is-csp" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-csp">What is ‘CSP’?</h2>
+<p>The data we will be using throughout this course relates to the Core Spending Power (CSP) of English local authorities. This is a measure of the resources available to local authorities in England to fund service delivery. The CSP is broken down into several components, presented as variables in the data. These components include:</p>
+<ul>
+<li>Settlement Funding Assessment (<code>sfa</code>)</li>
+<li>Compensation for under-indexing the business rates multipler (<code>under_index</code>)</li>
+<li>Income from council tax (<code>ct_total</code>)</li>
+<li>New Homes Bonus (<code>nhb</code>)</li>
+<li>Rural Services Delivery Grant (<code>rsdg</code>)</li>
+</ul>
+<p>Spending power is given in millions of pounds (£). The data were provided by the UK government’s Department for Levelling Up, Housing and Communities. Full guidance on the data can be found on the <a href="https://www.gov.uk/government/publications/explanatory-note-on-core-spending-power-provisional-local-government-finance-settlement-2024-to-2025/explanatory-note-on-core-spending-power-provisional-local-government-finance-settlement-2024-to-2025">Department’s website</a>. A brief description of the variables included in the data are given below.</p>
 </section>
-<section id="description-of-variables" class="level2">
-<h2 class="anchored" data-anchor-id="description-of-variables">Description of variables</h2>
+<section id="descriptions-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="descriptions-of-variables">Descriptions of variables</h2>
+<section id="identifier-variables" class="level3">
+<h3 class="anchored" data-anchor-id="identifier-variables">Identifier variables</h3>
+<p>Each dataset contains a unique identifier code variable, <code>ons_code</code>. This is a code given by the Government’s Office for National Statistics (ONS), and is used to join different datasets. There is also an <code>authority</code> variable which contains the local authority name (to see where each local authority lies on a map, you can visit the <a href="https://geoportal.statistics.gov.uk/documents/cb64eeb1b0a74e5ca277f9fac58500f4/explore">Government’s geoportal website</a>).</p>
+</section>
+<section id="regions-of-england" class="level3">
+<h3 class="anchored" data-anchor-id="regions-of-england">Regions of England</h3>
+<p>In addition to each local authority’s unique code and name, we are given the region that they lie within. England is separated into 9 regions (shown on <a href="https://geoportal.statistics.gov.uk/documents/bfe6f7099f9e4cc59f8064962959bfb5/explore">this map</a>) which are given as acronyms in the data. These are:</p>
+<ul>
+<li><code>L</code> = London</li>
+<li><code>NW</code> = North West</li>
+<li><code>NE</code> = North East</li>
+<li><code>YH</code> = Yorkshire and the Humber</li>
+<li><code>WM</code> = West Midlands</li>
+<li><code>EM</code> = East Midlands</li>
+<li><code>EE</code> = East England</li>
+<li><code>SW</code> = South West</li>
+<li><code>SE</code> = South East</li>
+</ul>
+</section>
+<section id="settlement-funding-assessment-sfa" class="level3">
+<h3 class="anchored" data-anchor-id="settlement-funding-assessment-sfa">Settlement Funding Assessment (SFA)</h3>
+<p>The Settlement Funding Assessment (<code>sfa</code> in the data) is the baseline funding level of local authorities, and includes the Revenue Support Grant (a central government grant given to local authorities).</p>
+</section>
+<section id="under-indexing-business-rate-multipliers" class="level3">
+<h3 class="anchored" data-anchor-id="under-indexing-business-rate-multipliers">Under-indexing business rate multipliers</h3>
+<p>The <code>under_index</code> variable is given to compensate local authorities that under-indexed business rate multipliers in previous years (i.e.&nbsp;those that used a measure of inflation that was lower than that should have been used).</p>
+</section>
+<section id="council-tax" class="level3">
+<h3 class="anchored" data-anchor-id="council-tax">Council tax</h3>
+<p>Council tax (<code>ct_total</code>) is the income made by each local authority from council tax. In England, the amount of council tax charged to residents is set by each local authority to make up additional revenue needed to cover planned spending.</p>
+</section>
+<section id="new-homes-bonus" class="level3">
+<h3 class="anchored" data-anchor-id="new-homes-bonus">New Homes Bonus</h3>
+<p>The <code>nhb</code> variables is the funding received as part of the New Homes Bonus, a government inncentive to encourage local authorities to promote new housing delevopment.</p>
+</section>
+<section id="rural-services-delivery-grant" class="level3">
+<h3 class="anchored" data-anchor-id="rural-services-delivery-grant">Rural Services Delivery Grant</h3>
+<p>The <code>rsdg</code> variable is funding received as part of the Rural Services Delivery Grant, provided to rural councils to recognise additional costs in these areas.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -763,13 +856,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./06_facet.html" class="pagination-link" aria-label="Faceting">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Faceting</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./exercise_solutions.html" class="pagination-link" aria-label="Exercise solutions">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Exercise solutions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./resources.html" class="pagination-link" aria-label="Further reading">
+        <span class="nav-page-text">Further reading</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

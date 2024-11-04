@@ -161,5 +161,5 @@ Your `ggplot` should contain `annotate` and `labs` layers.
 
 Add an extra `geom_point` layer to highlight the North West region.
 
-Use `annotate` layers to define the highlighted point meaning in the graph area. If you are really stuck, check (this ebook)[https://ggplot2-book.org/annotations#sec-text-labels] for inspiration.
+Use `annotate` layers to define the highlighted point meaning in the graph area. If you are really stuck, check [this ebook](https://ggplot2-book.org/annotations#sec-text-labels) for inspiration.
 :::

@@ -6,7 +6,23 @@ code-annotations: hover
 #| label: setup
 #| include: false
 
-pacman::p_load(tidyverse, palmerpenguins)
+pacman::p_load(tidyverse, palmerpenguins, patchwork)
+
+theme_dataviz <- function() {
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        axis.title = element_text(size = 16), 
+        axis.text.x = element_text(size = 12, angle = -30, 
+                                   vjust = 0), 
+        axis.text.y = element_text(size = 12, hjust = 0),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 12),
+        panel.background = element_rect(fill = "linen", 
+                                        colour = "grey"), 
+        panel.grid.major = element_line(colour = "grey45"),
+        panel.grid.minor = element_line(colour = "grey75", 
+                                        linetype = "dashed")) 
+}
 ```
 
 # Faceting
@@ -17,5 +33,160 @@ There are two approaches to faceting within `ggplot2`:
 - `facet_wrap` separates observations into separate graphs based on a single variable. This variable is entered into the function with a `vars` wrapper, the number of rows or columns are specified using the `nrow` and `ncol` arguments.
 - `facet_grid` produces a 2d grid of panels, where the rows and columns are defined by variables. Variables are included separated by `~` (`facet_grid(rows ~ cols)`).
 
+The layout of these facets can be customised by specifying the `nrow` or `ncol` arguments.
+
+```{r}
+#| label: fig-sex-facet
+#| fig-cap: "Scatterplot showing the relationship between body mass, flipper length and species of penguins in Antarctica, facetted by sex."
+#| warning: false
 
 
+ggplot(data = penguins,
+       aes(x = flipper_length_mm, y = body_mass_g, 
+           colour = species)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)",
+       colour = "Species") +
+  facet_wrap(vars(sex)) +
+  theme_light(base_size = 16)
+```
+
+## Customising facets
+### Dealing with missing data 
+As we can see from @fig-sex-facet, facet functions will treat missing values as a value and produce a facet for these observations. If we do not want to show these missing values, they would need to be removed from the data used to produce the plot:
+
+```{r}
+#| label: fig-facet-nona
+#| fig-cap: "Scatterplot showing the relationship between body mass, flipper length and species of penguins in Antarctica, facetted by sex (with missing data removed)."
+#| warning: false
+
+penguins %>% 
+  filter(!is.na(sex)) %>%  #<1>
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, 
+           colour = species)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)",
+       colour = "Species") +
+  facet_wrap(vars(sex)) +
+  theme_light(base_size = 16) +
+  theme(axis.text.x = element_text(angle = 45)) #<2>
+```
+
+1. Remove observations missing the `sex` variable.
+2. Rotate the x-axis labels to make them easier to read.
+
+### Scales
+One of the benefits of using facets when producing multiple graphs to make comparisons is that they are shown on equivalent scales by default. However, if this is not appropriate, this default can be changed using the `scales` argument. Scales can either be `"fixed"` (the default) or `"free"`, either across both axes or by a single dimension (`"free_x"` or `"free_y"`).
+
+:::{.stylebox}
+
+::::{.stylebox-header}
+:::::{.stylebox-icon}
+:::::
+Style tip
+::::
+
+::::{.stylebox-body}
+Where facets are used to make comparisons across panels, `scales` should be set to `fixed`. If not, the differences in scales may not be immediately obvious to readers which could be misleading where like-for-like comparisons are not appropriate. These `scales` should only be set as `free` where panels show different outcomes (e.g. multiple time series across different variables).
+::::
+
+:::
+
+### Facet appearances
+The appearance of facets, such as the colour of the labels and panels, can be customised within the `theme` function. Elements related to facets tend to begin `strip.`, for example `strip.background` changes the background colour, and `strip.placement` chooses whether facet labels should be added inside or outside the chart area:
+
+```{r}
+#| label: fig-facet-background
+#| fig-cap: "Scatterplot showing the relationship between body mass, flipper length and species of penguins in Antarctica, facetted by sex (with missing data removed)."
+#| warning: false
+
+penguins %>% 
+  filter(!is.na(sex)) %>%  
+  ggplot(aes(x = flipper_length_mm, y = body_mass_g, 
+           colour = species)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)",
+       colour = "Species") +
+  facet_wrap(vars(sex)) +
+  theme_light(base_size = 16) +
+  theme(axis.text.x = element_text(angle = 45),
+        strip.background = element_rect(fill = "thistle"),
+        strip.text = element_text(face = "bold", colour = "navy")) 
+```
+
+## Other options for multiple plots
+There are various packages that allow multiple `ggplot2` objects to be shown on the same output. One of the most popular is the [`patchwork`](https://patchwork.data-imaginist.com/) package. This is particularly useful where multiple points are necessary for investigating or communicating an aspect of the data that would overload a single plot. 
+
+For example, it we wanted to investigate the relationships between body mass, flipper length, species and bill length of the Palmer penguins, we would struggle to show this on a single plot. However, combining a scatterplot to investigate the relationship between body mass and flipper length, a box plot to compare the average bill length across species, and a histogram to show the different distribution of body mass across species, would give a clear message of these relationships. 
+
+We first have to create an object for each plot we would like to display:
+
+```{r}
+#| label: patchwork-plot-objects
+#| warning: false
+
+p1 <- ggplot(penguins) +
+  geom_point(aes(x = flipper_length_mm, y = body_mass_g, 
+                 colour = species)) +
+  scale_colour_brewer(name = "Species", palette = "Dark2") +
+  labs(x = "Flipper length (mm)", y = "Body mass (g)") +
+  theme_light(base_size = 16)
+
+p2 <- ggplot(penguins) +
+  geom_boxplot(aes(x = species, y = bill_length_mm, fill = species)) +
+  scale_fill_brewer(name = "Species", palette = "Dark2") +
+  labs(x = "Species", y = "Bill length (mm)") +
+  theme_light(base_size = 16) +
+  theme(legend.position = "none")
+
+p3 <- ggplot(penguins) +
+  geom_histogram(aes(x  = body_mass_g, fill = species),
+                 colour = "black", alpha = .75) +
+  scale_fill_brewer(name = "Species", palette = "Dark2") +
+  labs(x = "Count", x = "Body mass (g)") +
+  theme_light(base_size = 16) +
+  theme(legend.position = "none")
+```
+
+Using the `patchwork` package, `ggplot` objects can be displayed next to one another using the `+` symbol, and can be stacked on top of one another using the `/` symbol. These plots can be nested together by surrounding them by brackets. For example, if we wished to show the scatterplot on the first row, with the boxplot and histograms next to one another on the bottom, we would use the following code: 
+
+:::{.callout-warning}
+If you have never used the `patchwork` package, install it to your machine from CRAN using the following:
+
+`install.packages("patchwork")`
+
+If you have installed `patchwork`, ensure it is loaded into this section by adding the `library(patchwork)` command into your script.
+:::
+
+```{r}
+#| label: fig-patchwork-penguins
+#| fig-cap: "Plots investigating the relationship between penguins species and body mass, flipper length, and bill length"
+#| warning: false
+
+p1 / (p2 + p3)
+```
+
+In this example, we removed the legend from the bottom two plots to avoid duplication. However `patchwork` contains options that control the layout of outputs, including 'collecting' and condensing these into a single legend (ssee the [patchwork webpage](https://patchwork.data-imaginist.com/articles/guides/layout.html) for more details).
+
+## Exercise 4
+The `csp_201520.csv` data file contains information about core spending power in English local authorities between 2015 and 2020 (for more information about these variables, see the [data description appendix](data_description.qmd)). Using this information, generate a plot that investigates the change in spending power over this period, and whether this is different between regions of England. Adapt your visualisation to ensure that it is informative, compelling and accessible. This can include:
+
+- Adding an appropriate title and caption with data source information
+- Ensuring all colours and text are legible and inclusive
+- Adding labels to commmunicate important findings to the reader
+- Adjusting the theme to ensure text is large enough, values are clear but not overwhelmed by ‘chart junk’
+
+:::{.callout-caution collapse="true"}
+## Exercise hint
+
+There are a lot of options that we could use to display this information. Temporal data are often displayed using line graphs or, if we wished to show the decomposition of spending power by the different variables, a [stacked area plot](https://data-to-viz.com/graph/stackedarea.html) may be of interest. 
+
+This data does not contain the overall total spend per local authority so if this is something you would like to display, you would need to create this variable using the `mutate` function.
+
+Differences between regions could be added to a visualisation by using a different colour or by using facets if these differences are not clear on a single graph.
+
+Check that any colours are distinct, even to those with different forms of colour blindness. Ensure that text is clear and large enough. If there are multiple messages you would like to display, consider using `patchwork` to arrange multiple graphs on a single output.
+:::
