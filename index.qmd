@@ -63,7 +63,7 @@ All exercise solutions are available in the [appendices](exercise_solutions.qmd)
 
 Some exercises contain expandable hints, such as functions required to complete them, that can be viewed when needed. For example:
 
-:::{callout-caution collapse="true"}
+:::{.callout-caution collapse="true"}
 ## Exercise hint
 
 The functions you will need for this exercise are `filter` and `count`. 
